@@ -4,27 +4,25 @@
   
     
     <entry>
-      <title>Hexo优化与图床</title>
-      <link href="/2021/12/05/Hexo%E4%BC%98%E5%8C%96%E4%B8%8E%E5%9B%BE%E5%BA%8A/"/>
-      <url>/2021/12/05/Hexo%E4%BC%98%E5%8C%96%E4%B8%8E%E5%9B%BE%E5%BA%8A/</url>
+      <title>ReactNative基础</title>
+      <link href="/2021/12/05/ReactNative%E5%9F%BA%E7%A1%80/"/>
+      <url>/2021/12/05/ReactNative%E5%9F%BA%E7%A1%80/</url>
       
         <content type="html"><![CDATA[]]></content>
       
       
       <categories>
           
-          <category> 其他 </category>
+          <category> React </category>
           
-          <category> Hexo </category>
-          
-          <category> Hexo优化与图床 </category>
+          <category> ReactNative </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Hexo </tag>
+            <tag> React </tag>
             
         </tags>
       
