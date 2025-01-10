@@ -1,0 +1,401 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>moxieBlog - 默谐的博客</title><meta name="keywords" content="web前端"><meta name="author" content="moxie-默谐"><meta name="copyright" content="moxie-默谐"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="个人技术博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="moxieBlog">
+<meta property="og:url" content="https://githubmoxie.github.io/index.html">
+<meta property="og:site_name" content="moxieBlog">
+<meta property="og:description" content="个人技术博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5939.jpg">
+<meta property="article:author" content="moxie-默谐">
+<meta property="article:tag" content="web前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5939.jpg"><link rel="shortcut icon" href="https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5939.jpg"><link rel="canonical" href="https://githubmoxie.github.io/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/cdn/fontawesome/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: '/cdn/main/jquery.min.js',
+    justifiedGallery: {
+      js: '/cdn/justifiedGallery/jquery.justifiedGallery.min.js',
+      css: '/cdn/justifiedGallery/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: '/cdn/photo/jquery.fancybox.min.js',
+      css: '/cdn/photo/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'moxieBlog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2025-01-10 19:32:51'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5939.jpg" onerror="onerror=null;src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa-fw fas fa-images"></i><span> 图片</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/somewords/"><i class="fa-fw fa-fw fas fa-cubes"></i><span> 一些话</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5940.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">moxieBlog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa-fw fas fa-images"></i><span> 图片</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/somewords/"><i class="fa-fw fa-fw fas fa-cubes"></i><span> 一些话</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">moxieBlog</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/githubmoxie" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://gitee.com/giteemoxie" target="_blank" title="Gitee"><i class="fab fa-gofore"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/12/05/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" title="Markdown基本语法">     <img class="post_bg" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5213.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="Markdown基本语法"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/12/05/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" title="Markdown基本语法">Markdown基本语法</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-thumbtack sticky"></i><span class="sticky">置顶</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-12-05T10:46:02.000Z" title="发表于 2021-12-05 18:46:02">2021-12-05</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-10T11:15:10.008Z" title="更新于 2025-01-10 19:15:10">2025-01-10</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/Markdown/">Markdown</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Markdown/">Markdown</a></span></div><div class="content">
+
+前言Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，Markdown 文件的后缀名便是“.md”。Markdown 常被使用来撰写电子书、博客等，同时也是我们用来记笔记的好伙伴。
+本文主要介绍 Markdown 基本语法，如标题、代码块、列表、引用等语法的使用规则。
+
+一、标题语法使用 # 号可表示 1-6 级标题，一级标题对应一个 # 号，二级标题对应两个 # 号，以此类推。
+123456# 一级标题## 二级标题### 三级标题#### 四级标题##### 五级标题###### 六级标题
+效果展示：
+
+一级标题二级标题三级标题四级标题五级标题六级标题注：# 和文字之间的空格（以及其他语法中的空格）
+
+
+二、代码语法要将单词或短语表示为代码，请将其包裹在反引号( ` )中。
+1这是`Markdown`语法
+效果展示：
+
+这是Markdown语法
+
+代码块：使用( ``` )包裹中代码即可效果展示：
+1这是代码块
+
+
+三、字体语法Markdown 可以使用以下几种字体
+12345*斜体文本***粗体文本*****粗斜体文本***~~这是加删除线的 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/12/05/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" title="Hexo搭建个人博客">     <img class="post_bg" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5240.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="Hexo搭建个人博客"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/12/05/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" title="Hexo搭建个人博客">Hexo搭建个人博客</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-thumbtack sticky"></i><span class="sticky">置顶</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-12-05T10:44:24.000Z" title="发表于 2021-12-05 18:44:24">2021-12-05</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-10T11:15:10.008Z" title="更新于 2025-01-10 19:15:10">2025-01-10</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/Hexo/">Hexo</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Hexo/">Hexo</a></span></div><div class="content">前言Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown 解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
+本文介绍通过Hexo框架快速搭建个人博客，并部署到Gitee Pages服务部署博客。
+
+环境的安装安装地址
+
+安装Git
+安装Node.js
+
+GIT安装
+安装步骤：双击下载好的exe文件，一路点击next就好了。
+12git bash // 运行git version // 查看版本
+
+
+能看到版本号就说明你安装成功了，之后的命令都是在这里运行的。
+
+Node.js安装
+安装步骤：双击下载好的msi文件，也是一路下一步就好了。
+12node -v // 查看node.js版本npm -v // 查看npm版本
+
+
+Hexo安装安装cnpm淘宝镜像：利用npm工具来安装一个cnpm工具(国内的淘宝npm镜像源)，提升下载各种包的速度。
+1npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+后面所有的命令npm换成cnpm
+安装Hexo1234// 全局安装Hexo包cnpm  ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2022/01/09/Hexo%E4%BC%98%E5%8C%96%E6%95%99%E7%A8%8B/" title="Hexo优化教程">     <img class="post_bg" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5240.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="Hexo优化教程"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/01/09/Hexo%E4%BC%98%E5%8C%96%E6%95%99%E7%A8%8B/" title="Hexo优化教程">Hexo优化教程</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-thumbtack sticky"></i><span class="sticky">置顶</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-01-09T10:58:13.000Z" title="发表于 2022-01-09 18:58:13">2022-01-09</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-10T11:15:10.008Z" title="更新于 2025-01-10 19:15:10">2025-01-10</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/Hexo/">Hexo</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Hexo/">Hexo</a></span></div><div class="content">前言Hexo优化使你的博客更加好看，同时方便阅读。
+本文记录了本人在Hexo博客优化的相关配置，以及遇到的一些问题。
+
+主题选择你可以在官方Hexo主题网页中选择你喜爱的主题，并进行相关优化。
+
+注：本人使用的是Butterfly主题，选择一个好的主题是非常必要的。
+如果选择的主题不好，出现一些问题是无法解决的；
+博主之前踩过坑：比如本地配置完后没有任何问题，但是部署却发生意外的问题。
+
+推荐选择比较火热的主题，出现问题也方面网上查询相关问题。
+下文以butterfly主题开展重要的一些配置，希望对你有帮助！
+
+主题安装12// 安装butterflycnpm i hexo-theme-butterfly
+
+
+主配置修改 Hexo 根目錄下的 _config.yml，把主題改為butterfly1theme: butterfly
+
+检查根目录package.json文件如果没有 pug 以及 stylus 的渲染器，则需要安裝
+1cnpm install hexo-renderer-pug hexo-renderer-stylus --save
+
+主题文件在 hexo 的根目录创建一个 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2023/10/05/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%954/" title="前端知识记录4">     <img class="post_bg" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5213.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="前端知识记录4"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/10/05/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%954/" title="前端知识记录4">前端知识记录4</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-thumbtack sticky"></i><span class="sticky">置顶</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-05T12:56:20.000Z" title="发表于 2023-10-05 20:56:20">2023-10-05</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-10T11:15:10.027Z" title="更新于 2025-01-10 19:15:10">2025-01-10</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/">前端知识记录</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/">前端知识记录</a></span></div><div class="content">前言记录平时遇到的技术问题和学习到的新知识
+
+vue3 的 useAttrs 使用123456789101112131415// Grandpa.vue&lt;father text=&quot;文本&quot; @handle=&quot;handle&quot;/&gt;const handle = () =&gt; &#123; console.log(&#x27;Grandpa&#x27;) &#125;// father.vue&lt;son :=&quot;attrs&quot;&gt;const attrs = useAttrs() // 获取所有的未在 defineProps、defineEmits 中声明的属性与事件// son.vue&lt;div @click=&quot;handle&quot;&gt;我是son &#123;&#123; attrs.a &#125;&#125;&lt;/div&gt;const emit = defineEmits([&#x27;handle&#x27;])const handle = () =&gt; &#123;  emi ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2022/11/20/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%953/" title="前端知识记录3">     <img class="post_bg" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5221.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="前端知识记录3"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/11/20/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%953/" title="前端知识记录3">前端知识记录3</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-thumbtack sticky"></i><span class="sticky">置顶</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-11-20T04:04:44.000Z" title="发表于 2022-11-20 12:04:44">2022-11-20</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-10T11:15:10.027Z" title="更新于 2025-01-10 19:15:10">2025-01-10</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/">前端知识记录</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/">前端知识记录</a></span></div><div class="content">前言记录平时遇到的技术问题和学习到的新知识
+
+动态加载js1234567// 使用document.write 动态加载 script（每次引入的js文件名称不同防止浏览器读取缓存文件）&lt;script&gt;document.write(&quot;&lt;script src=&#x27;xxx.js?num=&quot; + Date.now() + &quot;&#x27;&gt;&lt;\/script&gt;&quot;)&lt;/script&gt;// 注意：如果后面的闭合标签不使用\分割就会与上面的标签对应，导致后面的成了HTML文本// 以后在&lt;script&gt;&lt;/script&gt;中的字符串中使用到&lt;/script&gt;，都需要分割处理。否则还会出现此BUG！
+
+
+element plus 自动按需加载与其他1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2022/05/04/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%952/" title="前端知识记录2">     <img class="post_bg" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c522f.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="前端知识记录2"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/05/04/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%952/" title="前端知识记录2">前端知识记录2</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-thumbtack sticky"></i><span class="sticky">置顶</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-05-04T13:46:24.000Z" title="发表于 2022-05-04 21:46:24">2022-05-04</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-10T11:15:10.027Z" title="更新于 2025-01-10 19:15:10">2025-01-10</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/">前端知识记录</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/">前端知识记录</a></span></div><div class="content">前言记录平时遇到的技术问题和学习到的新知识
+
+form表单提交使用form表单提交不会有跨域的情况
+123456789101112131415161718192021222324252627282930&lt;form id=&quot;formId&quot;      action=&quot;http://localhost:3000&quot;      method=&quot;get&quot;&gt;    &lt;label&gt;        &lt;input type=&quot;text&quot; placeholder=&quot;请输入手机号&quot; id=&quot;inputId&quot; name=&quot;mobile&quot;               pattern=&quot;^(13[0-9]|14[5|7]|15[0|1|2|3|4|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d&#123;8&#125;$&quot;               required        &gt;    &lt ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2022/03/17/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/" title="前端知识记录">     <img class="post_bg" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5929.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="前端知识记录"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/03/17/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/" title="前端知识记录">前端知识记录</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-thumbtack sticky"></i><span class="sticky">置顶</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-03-17T14:22:18.000Z" title="发表于 2022-03-17 22:22:18">2022-03-17</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-10T11:15:10.026Z" title="更新于 2025-01-10 19:15:10">2025-01-10</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/">前端知识记录</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/">前端知识记录</a></span></div><div class="content">前言本文是平时遇到的技术问题和学习到的新知识，还未有时间归类整理，放在该文章中记录。都是比较重要的知识点！！！
+
+i18国际化一个Vue.js插件，提供了多语言解决方案 项目地址（暂未使用过）
+1234567891011121314151617181920212223242526272829303132333435363738// 安装npm install vue-i18n --save// main.js使用import VueI18n from &#x27;vue-i18n&#x27;;Vue.use(VueI18n);// vue-i18n插件需要在入口文件中进行多语言包配置，其实是一个对象每种语言对应一个key。const messages = &#123;    en: &#123;        message: &#123;            hello: &#x27;hello world&#x27;        &#125;    &#125;,    cn: &#123;        message: &#123;            hello: &# ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2024/02/19/webpack-%E5%9F%BA%E7%A1%80/" title="webpack 基础">     <img class="post_bg" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5213.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="webpack 基础"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/02/19/webpack-%E5%9F%BA%E7%A1%80/" title="webpack 基础">webpack 基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-02-19T10:46:57.000Z" title="发表于 2024-02-19 18:46:57">2024-02-19</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-10T11:15:10.023Z" title="更新于 2025-01-10 19:15:10">2025-01-10</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/webpack/">webpack</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/webpack/">webpack</a></span></div><div class="content">前言webpack 基础学习的相关内容
+介绍是一个静态资源打包工具，将 Webpack 输出的文件叫做 bundle。
+
+参考 webpack
+
+
+功能介绍Webpack 本身功能是有限的:（其他功能，需要配置才能完成）
+Webpack 本身功能比较少，只能处理 js、json 资源，一旦遇到 css 等其他资源就会报错。
+
+开发模式：仅能编译 JS 中的 ES Module 
+生产模式：能编译 JS 中的 ES Module，还能压缩 JS 代码
+
+
+基本使用12345需要注意的是 package.json 中 name 字段不能叫做 webpack, 否则安装包会报错// 开发模式npx webpack ./src/main.js --mode=development// 生产模式npx webpack ./src/main.js --mode=production 
+
+
+基本配置5 大核心概念
+entry（入口）
+
+指示 Webpack 从哪个文件开始打包
+
+output（输出）
+
+指示 Webpack 打包完的文件输出到哪里去，如何命名等
+
+loader（加载器）
+
+webpa ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2023/10/05/ts%E5%90%8E%E5%8F%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" title="ts后台项目实战">     <img class="post_bg" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5213.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="ts后台项目实战"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/10/05/ts%E5%90%8E%E5%8F%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" title="ts后台项目实战">ts后台项目实战</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-05T12:56:46.000Z" title="发表于 2023-10-05 20:56:46">2023-10-05</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-10T11:15:10.008Z" title="更新于 2025-01-10 19:15:10">2025-01-10</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/">前端知识记录</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/vue-admin/">vue-admin</a></span></div><div class="content">前言记录学习 TS 后台项目的知识
+
+项目构建vite 构建搭建项目123456789# 创建项目pnpm create vite@latest# 选择如下√ Project name: ... vite-template√ Select a framework: » Vue√ Select a variant: » TypeScript# 安装依赖cd vite-templatepnpm i
+
+
+EditorConfig在项目根目录下增加.editorconfig文件
+12345678910111213141516# 编辑器配置文件 参考 http://editorconfig.orgroot = true # 表⽰是最顶层的配置⽂件，发现设为true时，才会停⽌查找.editorconfig⽂件[*] # 表示所有文件适用charset = utf-8 # 设置文件字符集为 utf-8indent_style = space # 缩进风格（tab | space）indent_size = 2 # 缩进大小end_of_line = lf # 控制换行类型(lf | cr | cr ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2022/12/28/Node-js-%E8%A1%A5%E5%85%85/" title="Node.js 补充">     <img class="post_bg" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5929.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="Node.js 补充"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/12/28/Node-js-%E8%A1%A5%E5%85%85/" title="Node.js 补充">Node.js 补充</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-12-28T04:56:38.000Z" title="发表于 2022-12-28 12:56:38">2022-12-28</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-10T11:15:10.008Z" title="更新于 2025-01-10 19:15:10">2025-01-10</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Node-js/">Node.js</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Node-js/">Node.js</a></span></div><div class="content">前言参考：Node.js
+初识 Node.js
+使用 Node.js 运行 js 文件
+输入：node 要执行的js文件的路径
+
+cmd 中快捷键：Tab 快速补全、Esc 快速情况当前输入的命令
+
+
+
+Node.js 中的 fs 模块fs.readFile12const fs = require(&#x27;fs&#x27;) // 注意不能使用 import fs from &#x27;fs&#x27;;fs.readFile(path[, options], callback)
+
+
+path：文件路径（必选）
+
+options：配置选项，若是字符串则指定编码格式 （可选）
+
+
+encoding：编码格式
+flag：打开方式
+
+
+callback：回调函数 （必选）
+
+
+err：错误信息
+data：读取的数据，如果未指定编码格式则返回一个 Buffer
+
+
+
+12345678910111213141516// 1. 导入 fs 模块，来操作文件const fs = require(&#x27;fs&#x27;)// 2. 调用 fs.readFile() 方法读取文件//    参 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#content-inner">5</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5939.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="avatar"/></div><div class="author-info__name">moxie-默谐</div><div class="author-info__description">Web前端工程师</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div></div><a class="button--animated" id="card-info-btn" href="mailto:2287930290@qq.com"><i class="fas fa-envelope"></i><span>联系我-QQEmail</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/githubmoxie" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://gitee.com/giteemoxie" target="_blank" title="Gitee"><i class="fab fa-gofore"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content"><div style="color:#f38fa3">欢迎来到我的博客！努力更新中！</div><div style="color:cornflowerblue;">每次更新会有缓存，请刷新浏览器！</div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/02/19/webpack-%E5%9F%BA%E7%A1%80/" title="webpack 基础"><img src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5213.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="webpack 基础"/></a><div class="content"><a class="title" href="/2024/02/19/webpack-%E5%9F%BA%E7%A1%80/" title="webpack 基础">webpack 基础</a><time datetime="2024-02-19T10:46:57.000Z" title="发表于 2024-02-19 18:46:57">2024-02-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/05/ts%E5%90%8E%E5%8F%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" title="ts后台项目实战"><img src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5213.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="ts后台项目实战"/></a><div class="content"><a class="title" href="/2023/10/05/ts%E5%90%8E%E5%8F%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" title="ts后台项目实战">ts后台项目实战</a><time datetime="2023-10-05T12:56:46.000Z" title="发表于 2023-10-05 20:56:46">2023-10-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/05/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%954/" title="前端知识记录4"><img src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5213.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="前端知识记录4"/></a><div class="content"><a class="title" href="/2023/10/05/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%954/" title="前端知识记录4">前端知识记录4</a><time datetime="2023-10-05T12:56:20.000Z" title="发表于 2023-10-05 20:56:20">2023-10-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/28/Node-js-%E8%A1%A5%E5%85%85/" title="Node.js 补充"><img src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5929.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="Node.js 补充"/></a><div class="content"><a class="title" href="/2022/12/28/Node-js-%E8%A1%A5%E5%85%85/" title="Node.js 补充">Node.js 补充</a><time datetime="2022-12-28T04:56:38.000Z" title="发表于 2022-12-28 12:56:38">2022-12-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/20/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%953/" title="前端知识记录3"><img src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5221.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="前端知识记录3"/></a><div class="content"><a class="title" href="/2022/11/20/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%953/" title="前端知识记录3">前端知识记录3</a><time datetime="2022-11-20T04:04:44.000Z" title="发表于 2022-11-20 12:04:44">2022-11-20</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CSS/"><span class="card-category-list-name">CSS</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/HTML/"><span class="card-category-list-name">HTML</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JQuery%E7%9F%A5%E8%AF%86/"><span class="card-category-list-name">JQuery知识</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/"><span class="card-category-list-name">JavaScript</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Node-js/"><span class="card-category-list-name">Node.js</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/React/"><span class="card-category-list-name">React</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/TypeScript/"><span class="card-category-list-name">TypeScript</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Vite/"><span class="card-category-list-name">Vite</span><span class="card-category-list-count">1</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/CSS/" style="font-size: 1.27em; color: rgb(81, 84, 101)">CSS</a><a href="/tags/Git/" style="font-size: 1.21em; color: rgb(175, 76, 117)">Git</a><a href="/tags/HTML/" style="font-size: 1.27em; color: rgb(142, 0, 72)">HTML</a><a href="/tags/JavaScript/" style="font-size: 1.33em; color: rgb(33, 75, 113)">JavaScript</a><a href="/tags/Hexo/" style="font-size: 1.21em; color: rgb(51, 126, 152)">Hexo</a><a href="/tags/JQuery/" style="font-size: 1.15em; color: rgb(126, 170, 134)">JQuery</a><a href="/tags/Markdown/" style="font-size: 1.15em; color: rgb(97, 103, 167)">Markdown</a><a href="/tags/Node-js/" style="font-size: 1.21em; color: rgb(115, 64, 117)">Node.js</a><a href="/tags/React/" style="font-size: 1.21em; color: rgb(61, 85, 56)">React</a><a href="/tags/Vue/" style="font-size: 1.39em; color: rgb(42, 88, 91)">Vue</a><a href="/tags/vue-admin/" style="font-size: 1.21em; color: rgb(148, 91, 125)">vue-admin</a><a href="/tags/uniapp/" style="font-size: 1.15em; color: rgb(176, 197, 46)">uniapp</a><a href="/tags/webpack/" style="font-size: 1.21em; color: rgb(47, 151, 104)">webpack</a><a href="/tags/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/" style="font-size: 1.45em; color: rgb(105, 164, 186)">前端知识记录</a><a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 1.21em; color: rgb(157, 87, 95)">微信小程序</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">二月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">十一月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/10/"><span class="card-archive-list-date">十月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/09/"><span class="card-archive-list-date">九月 2022</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/08/"><span class="card-archive-list-date">八月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/07/"><span class="card-archive-list-date">七月 2022</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">45</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2021-12-04T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">141.2k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-01-10T11:32:50.893Z"></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://pic.imgdb.cn/item/61d96e002ab3f51d910c3eb9.gif')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2025 By moxie-默谐</div><div class="footer_custom_text">分享记录学习过程！</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/cdn/background-effect/instantpage.min.js" type="module"></script><script src="/cdn/background-effect/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('/cdn/background-effect/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/cdn/background-effect/canvas-nest.min.js"></script><script id="click-heart" src="/cdn/effect/click-heart.min.js" async="async" mobile="false"></script><script src="/cdn/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="/cdn/count/busuanzi.pure.mini.js"></script></div></body></html>

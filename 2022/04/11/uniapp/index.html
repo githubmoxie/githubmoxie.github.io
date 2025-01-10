@@ -1,0 +1,508 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>uniapp | moxieBlog</title><meta name="keywords" content="uniapp"><meta name="author" content="moxie-默谐"><meta name="copyright" content="moxie-默谐"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言文章记录uniapp知识点  uniapp项目目录 pages.json 文件用来对 uni-app 进行全局配置，决定页面文件的路径、窗口样式、原生的导航栏、底部的原生tabbar 等 manifest.json 文件是应用的配置文件，用于指定应用的名称、图标、权限等。 App.vue是我们的跟组件，所有页面都是在App.vue下进行切换的，是页面入口文件，可以调用应用的生命周期函数。 ma">
+<meta property="og:type" content="article">
+<meta property="og:title" content="uniapp">
+<meta property="og:url" content="https://githubmoxie.github.io/2022/04/11/uniapp/index.html">
+<meta property="og:site_name" content="moxieBlog">
+<meta property="og:description" content="前言文章记录uniapp知识点  uniapp项目目录 pages.json 文件用来对 uni-app 进行全局配置，决定页面文件的路径、窗口样式、原生的导航栏、底部的原生tabbar 等 manifest.json 文件是应用的配置文件，用于指定应用的名称、图标、权限等。 App.vue是我们的跟组件，所有页面都是在App.vue下进行切换的，是页面入口文件，可以调用应用的生命周期函数。 ma">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.imgdb.cn/item/61d96e212ab3f51d910c522f.jpg">
+<meta property="article:published_time" content="2022-04-11T14:07:35.000Z">
+<meta property="article:modified_time" content="2025-01-10T11:15:10.008Z">
+<meta property="article:author" content="moxie-默谐">
+<meta property="article:tag" content="uniapp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/61d96e212ab3f51d910c522f.jpg"><link rel="shortcut icon" href="https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5939.jpg"><link rel="canonical" href="https://githubmoxie.github.io/2022/04/11/uniapp/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/cdn/fontawesome/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: '/cdn/main/jquery.min.js',
+    justifiedGallery: {
+      js: '/cdn/justifiedGallery/jquery.justifiedGallery.min.js',
+      css: '/cdn/justifiedGallery/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: '/cdn/photo/jquery.fancybox.min.js',
+      css: '/cdn/photo/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'uniapp',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-01-10 19:15:10'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5939.jpg" onerror="onerror=null;src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa-fw fas fa-images"></i><span> 图片</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/somewords/"><i class="fa-fw fa-fw fas fa-cubes"></i><span> 一些话</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://pic.imgdb.cn/item/61d96e212ab3f51d910c522f.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">moxieBlog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa-fw fas fa-images"></i><span> 图片</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/somewords/"><i class="fa-fw fa-fw fas fa-cubes"></i><span> 一些话</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">uniapp</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-04-11T14:07:35.000Z" title="发表于 2022-04-11 22:07:35">2022-04-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-10T11:15:10.008Z" title="更新于 2025-01-10 19:15:10">2025-01-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/uniapp/">uniapp</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="uniapp"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>文章记录uniapp知识点</p>
+<hr>
+<h1 id="uniapp项目目录"><a href="#uniapp项目目录" class="headerlink" title="uniapp项目目录"></a>uniapp项目目录</h1><ol>
+<li><code>pages.json</code> 文件用来对 uni-app 进行全局配置，决定页面文件的路径、窗口样式、原生的导航栏、底部的原生tabbar 等</li>
+<li><code>manifest.json</code> 文件是应用的配置文件，用于指定应用的名称、图标、权限等。</li>
+<li><code>App.vue</code>是我们的跟组件，所有页面都是在<code>App.vue</code>下进行切换的，是页面入口文件，可以调用应用的生命周期函数。</li>
+<li><code>main.js</code>是我们的项目入口文件，主要作用是初始化<code>vue</code>实例并使用需要的插件。</li>
+<li><code>uni.scss</code>文件的用途是为了方便整体控制应用的风格。比如按钮颜色、边框风格，<code>uni.scss</code>文件里预置了一批scss变量预置。</li>
+<li><code>unpackage</code> 就是打包目录，在这里有各个平台的打包文件</li>
+<li><code>pages</code> 所有的页面存放目录</li>
+<li><code>static</code> 静态资源目录，例如图片等</li>
+<li><code>components</code> 组件存放目录</li>
+</ol>
+<hr>
+<h1 id="全局配置和页面配置"><a href="#全局配置和页面配置" class="headerlink" title="全局配置和页面配置"></a>全局配置和页面配置</h1><h2 id="全局配置globalStyle"><a href="#全局配置globalStyle" class="headerlink" title="全局配置globalStyle"></a>全局配置globalStyle</h2><p>下方为常用的配置   <a target="_blank" rel="noopener" href="https://uniapp.dcloud.io/collocation/pages.html#globalstyle">文档地址</a></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>navigationBarBackgroundColor</td>
+<td>HexColor</td>
+<td>#F7F7F7</td>
+<td>导航栏背景颜色（同状态栏背景色）</td>
+</tr>
+<tr>
+<td>navigationBarTextStyle</td>
+<td>String</td>
+<td>white</td>
+<td>导航栏标题颜色及状态栏前景颜色，仅支持 black/white</td>
+</tr>
+<tr>
+<td>navigationBarTitleText</td>
+<td>String</td>
+<td></td>
+<td>导航栏标题文字内容</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td>HexColor</td>
+<td>#ffffff</td>
+<td>窗口的背景色</td>
+</tr>
+<tr>
+<td>backgroundTextStyle</td>
+<td>String</td>
+<td>dark</td>
+<td>下拉 loading 的样式，仅支持 dark / light</td>
+</tr>
+<tr>
+<td>enablePullDownRefresh</td>
+<td>Boolean</td>
+<td>false</td>
+<td>是否开启下拉刷新，详见[页面生命周期]</td>
+</tr>
+<tr>
+<td>onReachBottomDistance</td>
+<td>Number</td>
+<td>50</td>
+<td>页面上拉触底事件触发时距页面底部距离，单位只支持px</td>
+</tr>
+</tbody></table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 通过globalStyle进行全局配置</span></span><br><span class="line"><span class="comment">// 注意：backgroundColor需要开启下拉才可以配置（下拉显示出来的窗口的背景色，微信小程序支持）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 有h5、mp-weixin、app-plus等平台特定样式配置（具体用法还未使用）</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="pages配置"><a href="#pages配置" class="headerlink" title="pages配置"></a>pages配置</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>path</td>
+<td>String</td>
+<td>配置页面路径</td>
+</tr>
+<tr>
+<td>style</td>
+<td>Object</td>
+<td>配置页面窗口表现，配置项参考</td>
+</tr>
+</tbody></table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pages数组数组中第一项表示应用启动页</span></span><br><span class="line"><span class="comment">// 配置会覆盖全局，并且也有h5等特定样式配置</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="配置tabbar"><a href="#配置tabbar" class="headerlink" title="配置tabbar"></a>配置tabbar</h2><p>注意：当设置 position 为 top 时，将不会显示 icon</p>
+<p>tabBar 中的 list 是一个数组，只能配置最少2个、最多5个 tab，tab 按数组的顺序排序。</p>
+<hr>
+<h2 id="condition启动模式配置"><a href="#condition启动模式配置" class="headerlink" title="condition启动模式配置"></a>condition启动模式配置</h2><p>启动模式配置，仅开发期间生效，用于模拟直达页面的场景，如：小程序转发后，用户点击所打开的页面。</p>
+<p><strong>属性说明：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>是否必填</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>current</td>
+<td>Number</td>
+<td>是</td>
+<td>当前激活的模式，list节点的索引值</td>
+</tr>
+<tr>
+<td>list</td>
+<td>Array</td>
+<td>是</td>
+<td>启动模式列表</td>
+</tr>
+</tbody></table>
+<p><strong>list说明：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>是否必填</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td>String</td>
+<td>是</td>
+<td>启动模式名称</td>
+</tr>
+<tr>
+<td>path</td>
+<td>String</td>
+<td>是</td>
+<td>启动页面路径</td>
+</tr>
+<tr>
+<td>query</td>
+<td>String</td>
+<td>否</td>
+<td>启动参数，可在页面的onLoad函数里获得</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// text 组件相当于行内标签、在同一行显示</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// &lt;image&gt; 组件默认宽度 300px、高度 225px；</span></span><br><span class="line"><span class="comment">// src仅支持相对路径、绝对路径，支持 base64 码；</span></span><br><span class="line"><span class="comment">// 页面结构复杂，css样式太多的情况，使用 image 可能导致样式生效较慢，</span></span><br><span class="line"><span class="comment">// 出现 “闪一下” 的情况，此时设置 image&#123;will-change: transform&#125; ,可优化此问题。</span></span><br><span class="line"><span class="comment">// 图片mode属性剪切aspectFit、aspectFill常用</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="uni-app的css样式"><a href="#uni-app的css样式" class="headerlink" title="uni-app的css样式"></a>uni-app的css样式</h1><ol>
+<li>rpx 即响应式px，一种根据屏幕宽度自适应的动态单位。以750宽的屏幕为基准，750rpx恰好为屏幕宽度。屏幕变宽，rpx 实际显示效果会等比放大。</li>
+<li>使用@import语句可以导入外联样式表，@import后跟需要导入的外联样式表的相对路径，用;表示语句结束</li>
+<li>支持基本常用的选择器class、id、element等</li>
+<li>在 uni-app 中不能使用 * 选择器。</li>
+<li>page 相当于 body 节点</li>
+<li>定义在 App.vue 中的样式为全局样式，作用于每一个页面。在 pages 目录下 的 vue 文件中定义的样式为局部样式，只作用在对应的页面，并会覆盖 App.vue 中相同的选择器。</li>
+<li>uni-app 支持使用字体图标，使用方式与普通 web 项目相同，需要注意以下几点：</li>
+<li>字体文件小于 40kb，uni-app 会自动将其转化为 base64 格式；</li>
+<li>字体文件大于等于 40kb， 需开发者自己转换，否则使用将不生效；</li>
+<li>字体文件的引用路径推荐使用以 <del>@ 开头的绝对路径。 `@font-face {       font-family: test1-icon;       src: url(‘</del>@/static/iconfont.ttf’);    }`</li>
+<li>如何使用scss或者less（编辑器直接安装插件）</li>
+</ol>
+<hr>
+<h1 id="uni-app的生命周期"><a href="#uni-app的生命周期" class="headerlink" title="uni-app的生命周期"></a>uni-app的生命周期</h1><h2 id="应用的生命周期"><a href="#应用的生命周期" class="headerlink" title="应用的生命周期"></a>应用的生命周期</h2><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>onLaunch</td>
+<td>当uni-app初始化完成时触发（全局只触发一次）</td>
+</tr>
+<tr>
+<td>onShow</td>
+<td>当uni-app启动，或从后台进入前台显示</td>
+</tr>
+<tr>
+<td>onHide</td>
+<td>当uni-app从前台进入后台</td>
+</tr>
+<tr>
+<td>onError</td>
+<td>当uni-app报错时触发</td>
+</tr>
+</tbody></table>
+<h2 id="页面的生命周期"><a href="#页面的生命周期" class="headerlink" title="页面的生命周期"></a>页面的生命周期</h2><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>onLoad</td>
+<td>监听页面加载，其参数为上个页面传递的数据，参数类型为Object（用于页面传参）</td>
+</tr>
+<tr>
+<td>onShow</td>
+<td>监听页面显示。页面每次出现在屏幕上都触发，包括从下级页面点返回露出当前页面</td>
+</tr>
+<tr>
+<td>onReady</td>
+<td>监听页面初次渲染完成。</td>
+</tr>
+<tr>
+<td>onHide</td>
+<td>监听页面隐藏</td>
+</tr>
+<tr>
+<td>onUnload</td>
+<td>监听页面卸载</td>
+</tr>
+</tbody></table>
+<h2 id="开启下拉刷新"><a href="#开启下拉刷新" class="headerlink" title="开启下拉刷新"></a>开启下拉刷新</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pages.json配置pages节点，在 style 选项中开启 enablePullDownRefresh</span></span><br><span class="line"><span class="comment">// 监听</span></span><br><span class="line"><span class="title function_">onPullDownRefresh</span> () &#123;&#125;</span><br><span class="line"><span class="comment">// 关闭下拉刷新</span></span><br><span class="line">uni.<span class="title function_">stopPullDownRefresh</span>()</span><br><span class="line"><span class="comment">// 通过调用uni.startPullDownRefresh方法来开启下拉刷新</span></span><br><span class="line">uni.<span class="title function_">startPullDownRefresh</span>()</span><br></pre></td></tr></table></figure>
+
+<h2 id="上拉加载"><a href="#上拉加载" class="headerlink" title="上拉加载"></a>上拉加载</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pages.json里pages的style中配置onReachBottomDistance可设置距离底部加载距离，默认为50px</span></span><br><span class="line"><span class="comment">// 通过onReachBottom监听到触底的行为</span></span><br><span class="line"><span class="title function_">onReachBottom</span> () &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="部分api"><a href="#部分api" class="headerlink" title="部分api"></a>部分api</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 发送请求</span></span><br><span class="line">uni.<span class="title function_">request</span>(&#123;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 本地缓存</span></span><br><span class="line">uni.<span class="title function_">setStorageSync</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 预览图片</span></span><br><span class="line">uni.<span class="title function_">previewImage</span>(&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h1><p>条件编译是用特殊的注释作为标记，在编译时根据这些特殊的注释，将注释里面的代码编译到不同平台。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#ifdef：if defined 仅在某平台存在</span><br><span class="line">#ifndef：if not defined 除了某平台均存在</span><br><span class="line">%PLATFORM%：平台名称</span><br><span class="line">#endif 结尾</span><br></pre></td></tr></table></figure>
+
+<p><strong>代码演示</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- #ifdef H5 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span></span><br><span class="line">  h5页面会显示</span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- #endif --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- #ifdef MP-WEIXIN --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span></span><br><span class="line">  微信小程序会显示</span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- #endif --&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">onLoad</span> () &#123;</span><br><span class="line">  <span class="comment">//#ifdef MP-WEIXIN</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;微信小程序&#x27;</span>)</span><br><span class="line">  <span class="comment">//#endif</span></span><br><span class="line">  <span class="comment">//#ifdef H5</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;h5页面&#x27;</span>)</span><br><span class="line">  <span class="comment">//#endif</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* #ifdef H5 */</span></span><br><span class="line">view&#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">background</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* #endif */</span></span><br><span class="line"><span class="comment">/* #ifdef MP-WEIXIN */</span></span><br><span class="line">view&#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">background</span>: green;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* #endif */</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="uni中的导航跳转"><a href="#uni中的导航跳转" class="headerlink" title="uni中的导航跳转"></a>uni中的导航跳转</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明式导航</span></span><br><span class="line">&lt;navigator url=<span class="string">&quot;/pages/about/about&quot;</span> hover-<span class="keyword">class</span>=<span class="string">&quot;navigator-hover&quot;</span>&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;default&quot;</span>&gt;</span>跳转到关于页面<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">&lt;/navigator&gt;</span><br><span class="line"><span class="comment">// 跳转到tabbar页面，添加open-type=&quot;switchTab&quot;属性</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// --------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 编程式导航，url相对和绝对都可以</span></span><br><span class="line">uni.<span class="title function_">navigateTo</span>(&#123;&#125;)</span><br><span class="line">uni.<span class="title function_">switchTab</span>(&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="组件-1"><a href="#组件-1" class="headerlink" title="组件"></a>组件</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 组件的生命周期和vue的一致</span></span><br><span class="line"><span class="comment">//uni-app的全局事件总线</span></span><br><span class="line">uni.$emit(<span class="string">&#x27;update&#x27;</span>,&#123;<span class="attr">msg</span>:<span class="string">&#x27;页面更新&#x27;</span>&#125;)</span><br><span class="line">uni.$on(<span class="string">&#x27;update&#x27;</span>,<span class="keyword">function</span>(<span class="params">data</span>)&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h1><h2 id="封装request请求"><a href="#封装request请求" class="headerlink" title="封装request请求"></a>封装request请求</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 封装get请求</span></span><br><span class="line"><span class="keyword">const</span> baseUrl = <span class="string">&quot;xxx&quot;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">myRequest</span> = (<span class="params">options</span>)=&gt;&#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">      uni.<span class="title function_">request</span>(&#123;</span><br><span class="line">         <span class="attr">method</span>: options.<span class="property">method</span>,</span><br><span class="line">         <span class="attr">data</span>: options.<span class="property">data</span>,</span><br><span class="line">         <span class="attr">url</span>: baseUrl+options.<span class="property">url</span>,</span><br><span class="line">         <span class="title function_">success</span>(<span class="params">res</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(res.<span class="property">data</span>.<span class="property">status</span> !== <span class="number">0</span>) &#123;</span><br><span class="line">               <span class="keyword">return</span> uni.<span class="title function_">showToast</span>(&#123;</span><br><span class="line">                  <span class="attr">title</span>: <span class="string">&#x27;获取数据失败&#x27;</span></span><br><span class="line">               &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="title function_">resolve</span>(res)</span><br><span class="line">         &#125;,</span><br><span class="line">         <span class="title function_">fail</span>(<span class="params">err</span>) &#123;</span><br><span class="line">            uni.<span class="title function_">showToast</span>(&#123;</span><br><span class="line">               <span class="attr">title</span>: <span class="string">&#x27;获取数据失败&#x27;</span></span><br><span class="line">            &#125;)</span><br><span class="line">            <span class="title function_">reject</span>(err)</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">   &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在main.js中导入并挂载到全局</span></span><br><span class="line"><span class="keyword">import</span> &#123; myRequest &#125; <span class="keyword">from</span> <span class="string">&#x27;./util/api.js&#x27;</span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">$myRequest</span> = myReques</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="uniapp中vuex刷新数据保留"><a href="#uniapp中vuex刷新数据保留" class="headerlink" title="uniapp中vuex刷新数据保留"></a><strong>uniapp中vuex刷新数据保留</strong></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方案1</span></span><br><span class="line"><span class="comment">//在页面刷新时将vuex里的信息保存到Storage里</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;beforeunload&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    uni.<span class="title function_">setStorageSync</span>(<span class="string">&quot;userComMsg&quot;</span>, <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(<span class="variable language_">this</span>.<span class="property">$store</span>.<span class="property">state</span>));</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//在页面加载时读取Storage里的状态信息</span></span><br><span class="line"><span class="keyword">if</span> (uni.<span class="title function_">getStorageSync</span>(<span class="string">&quot;userComMsg&quot;</span>)) &#123;</span><br><span class="line">    <span class="title class_">Object</span>.<span class="title function_">assign</span>(</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">$store</span>.<span class="property">state</span>,</span><br><span class="line">        <span class="title class_">JSON</span>.<span class="title function_">parse</span>(uni.<span class="title function_">getStorageSync</span>(<span class="string">&quot;userComMsg&quot;</span>))</span><br><span class="line">    );</span><br><span class="line">    <span class="comment">//使用后清除内存</span></span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    uni.<span class="title function_">removeStorageSync</span>(<span class="string">&quot;userComMsg&quot;</span>);</span><br><span class="line">    &#125;, <span class="number">300</span>);</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="comment">// ---------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 方案2</span></span><br><span class="line"><span class="comment">// 使用拦截器uni.addInterceptor(STRING, OBJECT)</span></span><br><span class="line"><span class="comment">// 页面白名单</span></span><br><span class="line"><span class="keyword">const</span> whiteList = [</span><br><span class="line">    <span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;/pages/login/index&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;/pages/index/index&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;/pages/category/index&#x27;</span>,</span><br><span class="line">]</span><br><span class="line"> </span><br><span class="line"><span class="keyword">function</span> <span class="title function_">hasPermission</span> (<span class="params">url</span>) &#123;</span><br><span class="line">    <span class="comment">// 在白名单中或有token，直接跳转</span></span><br><span class="line">    <span class="keyword">if</span>(whiteList.<span class="title function_">indexOf</span>(url) !== -<span class="number">1</span> || store.<span class="property">getters</span>.<span class="property">access_token</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">uni.<span class="title function_">addInterceptor</span>(<span class="string">&#x27;navigateTo&#x27;</span>, &#123;</span><br><span class="line">    <span class="comment">// 页面跳转前进行拦截, invoke根据返回值进行判断是否继续执行跳转</span></span><br><span class="line">    <span class="title function_">invoke</span> (e) &#123;</span><br><span class="line">        <span class="keyword">if</span>(!<span class="title function_">hasPermission</span>(e.<span class="property">url</span>))&#123;</span><br><span class="line">            uni.<span class="title function_">reLaunch</span>(&#123;</span><br><span class="line">                <span class="attr">url</span>: <span class="string">&#x27;/pages/login/index&#x27;</span></span><br><span class="line">            &#125;)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="title function_">success</span> (e) &#123;</span><br><span class="line">        <span class="comment">// console.log(e)</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line">uni.<span class="title function_">addInterceptor</span>(<span class="string">&#x27;switchTab&#x27;</span>, &#123;</span><br><span class="line">    <span class="comment">// tabbar页面跳转前进行拦截</span></span><br><span class="line">    <span class="title function_">invoke</span> (e) &#123;</span><br><span class="line">        <span class="keyword">if</span>(!<span class="title function_">hasPermission</span>(e.<span class="property">url</span>))&#123;</span><br><span class="line">            uni.<span class="title function_">reLaunch</span>(&#123;</span><br><span class="line">                <span class="attr">url</span>: <span class="string">&#x27;/pages/login/index&#x27;</span></span><br><span class="line">            &#125;)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="title function_">success</span> (e) &#123;</span><br><span class="line">        <span class="comment">// console.log(e)</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 拦截uni.switchTab本身没有问题。微信小程序端点击tabbar的底层逻辑并不是触发uni.switchTab。</span></span><br><span class="line"><span class="comment">// 解决方案是在tabbar页面的页面生命周期onShow中处理。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 方案3</span></span><br><span class="line"><span class="comment">// 在APP.vue的onLaunch中（每次刷新后就会触发）</span></span><br><span class="line"><span class="comment">// 获取token</span></span><br><span class="line">uni.<span class="title function_">getStorage</span>(&#123;</span><br><span class="line">    <span class="attr">key</span>: <span class="string">&#x27;token&#x27;</span>,</span><br><span class="line">    <span class="attr">success</span>: <span class="function">(<span class="params">&#123; data &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">$store</span>.<span class="title function_">commit</span>(<span class="string">&#x27;login&#x27;</span>, data)</span><br><span class="line">        <span class="keyword">if</span>(<span class="variable language_">this</span>.<span class="property">$store</span>.<span class="property">state</span>.<span class="property">userInfo</span>) <span class="keyword">return</span> <span class="comment">// 如果有用户信息则不用重新获取</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">$u</span>.<span class="title function_">get</span>(<span class="string">&#x27;/api/user&#x27;</span>).<span class="title function_">then</span>(<span class="function">(<span class="params">&#123; data &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">              <span class="variable language_">this</span>.<span class="property">$store</span>.<span class="title function_">commit</span>(<span class="string">&#x27;userInfo&#x27;</span>, data) <span class="comment">// 设置用户信息</span></span><br><span class="line">        &#125;).<span class="title function_">catch</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">              <span class="variable language_">this</span>.<span class="property">$store</span>.<span class="title function_">commit</span>(<span class="string">&#x27;logOut&#x27;</span>) <span class="comment">// 退出</span></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="原生插件的使用"><a href="#原生插件的使用" class="headerlink" title="原生插件的使用"></a><strong>原生插件的使用</strong></h1><ol>
+<li>插件市场添加插件，注意购买的包名选择当前的项目</li>
+<li>manifest.js配置APP原生插件，注意高德地图插件定位和maps可能会有冲突</li>
+<li>选择运行-制作自定义基座-运行基座选择未自定义-运行</li>
+<li>安装的证书获取：<a target="_blank" rel="noopener" href="https://dev.dcloud.net.cn/">https://dev.dcloud.net.cn</a></li>
+<li>选择对应的应用-应用证书股管理-获取证书</li>
+</ol>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">moxie-默谐</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://githubmoxie.github.io/2022/04/11/uniapp/">https://githubmoxie.github.io/2022/04/11/uniapp/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://githubmoxie.github.io" target="_blank">moxieBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/uniapp/">uniapp</a></div><div class="post_share"><div class="social-share" data-image="https://pic.imgdb.cn/item/61d96e212ab3f51d910c522f.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="/cdn/share/share.min.css" media="print" onload="this.media='all'"><script src="/cdn/share/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/04/11/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9F%A5%E8%AF%86/"><img class="prev-cover" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5221.jpg" onerror="onerror=null;src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">微信小程序知识</div></div></a></div><div class="next-post pull-right"><a href="/2022/03/17/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/"><img class="next-cover" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5929.jpg" onerror="onerror=null;src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">前端知识记录</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#uniapp%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95"><span class="toc-number">2.</span> <span class="toc-text">uniapp项目目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%E5%92%8C%E9%A1%B5%E9%9D%A2%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">全局配置和页面配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AEglobalStyle"><span class="toc-number">3.1.</span> <span class="toc-text">全局配置globalStyle</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pages%E9%85%8D%E7%BD%AE"><span class="toc-number">3.2.</span> <span class="toc-text">pages配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEtabbar"><span class="toc-number">3.3.</span> <span class="toc-text">配置tabbar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#condition%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE"><span class="toc-number">3.4.</span> <span class="toc-text">condition启动模式配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">组件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#uni-app%E7%9A%84css%E6%A0%B7%E5%BC%8F"><span class="toc-number">5.</span> <span class="toc-text">uni-app的css样式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#uni-app%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">6.</span> <span class="toc-text">uni-app的生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">6.1.</span> <span class="toc-text">应用的生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">6.2.</span> <span class="toc-text">页面的生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%90%AF%E4%B8%8B%E6%8B%89%E5%88%B7%E6%96%B0"><span class="toc-number">6.3.</span> <span class="toc-text">开启下拉刷新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E6%8B%89%E5%8A%A0%E8%BD%BD"><span class="toc-number">6.4.</span> <span class="toc-text">上拉加载</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%83%A8%E5%88%86api"><span class="toc-number">7.</span> <span class="toc-text">部分api</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5"><span class="toc-number">8.</span> <span class="toc-text">条件语句</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#uni%E4%B8%AD%E7%9A%84%E5%AF%BC%E8%88%AA%E8%B7%B3%E8%BD%AC"><span class="toc-number">9.</span> <span class="toc-text">uni中的导航跳转</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6-1"><span class="toc-number">10.</span> <span class="toc-text">组件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE"><span class="toc-number">11.</span> <span class="toc-text">项目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%81%E8%A3%85request%E8%AF%B7%E6%B1%82"><span class="toc-number">11.1.</span> <span class="toc-text">封装request请求</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#uniapp%E4%B8%ADvuex%E5%88%B7%E6%96%B0%E6%95%B0%E6%8D%AE%E4%BF%9D%E7%95%99"><span class="toc-number">12.</span> <span class="toc-text">uniapp中vuex刷新数据保留</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E7%94%9F%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">13.</span> <span class="toc-text">原生插件的使用</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://pic.imgdb.cn/item/61d96e002ab3f51d910c3eb9.gif')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2025 By moxie-默谐</div><div class="footer_custom_text">分享记录学习过程！</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/cdn/background-effect/instantpage.min.js" type="module"></script><script src="/cdn/background-effect/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('/cdn/background-effect/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/cdn/background-effect/canvas-nest.min.js"></script><script id="click-heart" src="/cdn/effect/click-heart.min.js" async="async" mobile="false"></script><script src="/cdn/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="/cdn/count/busuanzi.pure.mini.js"></script></div></body></html>

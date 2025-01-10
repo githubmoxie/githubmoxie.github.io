@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>axios、echarts等 | moxieBlog</title><meta name="keywords" content="Vue"><meta name="author" content="moxie-默谐"><meta name="copyright" content="moxie-默谐"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言该文主要记录在项目实战需要用到的一部分知识。以及项目中遇到的问题。  定义别名123456789101112131415&#x2F;&#x2F; 定义路径const path &#x3D; require(&amp;#x27;path&amp;#x27;)&#x2F;&#x2F; resolve函数function resolve(dir) &amp;#123;    return path.join(__dirname, dir)&amp;#125;module.expo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="axios、echarts等">
+<meta property="og:url" content="https://githubmoxie.github.io/2022/01/11/axios%E3%80%81echarts%E7%AD%89/index.html">
+<meta property="og:site_name" content="moxieBlog">
+<meta property="og:description" content="前言该文主要记录在项目实战需要用到的一部分知识。以及项目中遇到的问题。  定义别名123456789101112131415&#x2F;&#x2F; 定义路径const path &#x3D; require(&amp;#x27;path&amp;#x27;)&#x2F;&#x2F; resolve函数function resolve(dir) &amp;#123;    return path.join(__dirname, dir)&amp;#125;module.expo">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5221.jpg">
+<meta property="article:published_time" content="2022-01-10T18:10:50.000Z">
+<meta property="article:modified_time" content="2025-01-10T11:15:10.008Z">
+<meta property="article:author" content="moxie-默谐">
+<meta property="article:tag" content="Vue">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5221.jpg"><link rel="shortcut icon" href="https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5939.jpg"><link rel="canonical" href="https://githubmoxie.github.io/2022/01/11/axios%E3%80%81echarts%E7%AD%89/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/cdn/fontawesome/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: '/cdn/main/jquery.min.js',
+    justifiedGallery: {
+      js: '/cdn/justifiedGallery/jquery.justifiedGallery.min.js',
+      css: '/cdn/justifiedGallery/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: '/cdn/photo/jquery.fancybox.min.js',
+      css: '/cdn/photo/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'axios、echarts等',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-01-10 19:15:10'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5939.jpg" onerror="onerror=null;src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa-fw fas fa-images"></i><span> 图片</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/somewords/"><i class="fa-fw fa-fw fas fa-cubes"></i><span> 一些话</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://pic.imgdb.cn/item/61d96e212ab3f51d910c5221.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">moxieBlog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa-fw fas fa-images"></i><span> 图片</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/somewords/"><i class="fa-fw fa-fw fas fa-cubes"></i><span> 一些话</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">axios、echarts等</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-01-10T18:10:50.000Z" title="发表于 2022-01-11 02:10:50">2022-01-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-10T11:15:10.008Z" title="更新于 2025-01-10 19:15:10">2025-01-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Vue/">Vue</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="axios、echarts等"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>该文主要记录在项目实战需要用到的一部分知识。以及项目中遇到的问题。</p>
+<hr>
+<h1 id="定义别名"><a href="#定义别名" class="headerlink" title="定义别名"></a>定义别名</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 定义路径</span><br><span class="line">const path = require(&#x27;path&#x27;)</span><br><span class="line">// resolve函数</span><br><span class="line">function resolve(dir) &#123;</span><br><span class="line">    return path.join(__dirname, dir)</span><br><span class="line">&#125;</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    configureWebpack: &#123;</span><br><span class="line">        resolve: &#123;</span><br><span class="line">            alias: &#123;</span><br><span class="line">                &#x27;@&#x27;: resolve(&#x27;src&#x27;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="api-js"><a href="#api-js" class="headerlink" title="api.js"></a>api.js</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">// 新建 src/api目录</span><br><span class="line">// 先引用</span><br><span class="line">import request from &#x27;@/utils/request&#x27;</span><br><span class="line">// 查询</span><br><span class="line">export function fetchList(data) &#123;</span><br><span class="line">  return request(&#123;</span><br><span class="line">    url: &#x27;/articles&#x27;,</span><br><span class="line">    method: &#x27;get&#x27;,</span><br><span class="line">    params: data</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line">// 查询单条</span><br><span class="line">export function fetchArticle(id) &#123;</span><br><span class="line">  return request(&#123;</span><br><span class="line">    url: `/articles/$&#123;id&#125;`,</span><br><span class="line">    method: &#x27;get&#x27;,</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">// 创建</span><br><span class="line">export function createArticle(data) &#123;</span><br><span class="line">  return request(&#123;</span><br><span class="line">    url: &#x27;/articles&#x27;,</span><br><span class="line">    method: &#x27;post&#x27;,</span><br><span class="line">    data</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">// 修改</span><br><span class="line">export function updateArticle(id, data) &#123;</span><br><span class="line">  return request(&#123;</span><br><span class="line">    url: `/articles/$&#123;id&#125;`,</span><br><span class="line">    method: &#x27;put&#x27;,</span><br><span class="line">    data</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">// 使用api</span><br><span class="line">// 先引用</span><br><span class="line">import &#123;fetchList&#125; from &#x27;@/api/api&#x27;</span><br><span class="line">// 查询</span><br><span class="line">fetchList(&#123;currentPage:this.page.currentPage,pageSize:this.page.pageSize,</span><br><span class="line">    content:this.form.content,title:this.form.title&#125;).then(res=&gt;&#123;&#125;)</span><br><span class="line">// 或者在封装里面写好要查询的，不过在调用时就要传递的就固定了（实参里的对象值就要固定了）</span><br><span class="line">// 推荐上面的，因为只params需要的对象data里面只有一个时，可以直接写this.对象名</span><br><span class="line">export default &#123;fetchList&#125; // 这个可加可不加（目前不清楚）</span><br><span class="line">// 注意这个封装做完后，需要从新启动项目（否者没有用）</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Echarts"><a href="#Echarts" class="headerlink" title="Echarts"></a>Echarts</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 安装</span><br><span class="line">yarn add echarts</span><br><span class="line">// 使用</span><br><span class="line">import * as echarts from &#x27;echarts&#x27;;</span><br><span class="line">// 使用api的名字</span><br><span class="line">import &#123;productsChart as xinmingzi&#125; from &quot;@/api/charts&quot;;</span><br><span class="line">// 必须使用id，和要渲染的元素给定宽高次才可以出现图表</span><br><span class="line">&lt;div id=&quot;chart&quot; style=&quot;width=100%;height=500px&quot;&gt;&lt;/div&gt;</span><br><span class="line">// js下面Echarts</span><br><span class="line">// （赋值需要放到mounted里面，需要找到当前的Dom）</span><br></pre></td></tr></table></figure>
+
+<h1 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">import axios from &#x27;axios&#x27;</span><br><span class="line">import &#123;MessageBox, Message&#125; from &#x27;element-ui&#x27;</span><br><span class="line">// import store from &#x27;@/store&#x27;</span><br><span class="line">// import &#123; getToken &#125; from &#x27;@/utils/auth&#x27;</span><br><span class="line"></span><br><span class="line">// 创建axios实例</span><br><span class="line">const service = axios.create(&#123;</span><br><span class="line">  // 接口不用写&#x27;/api&#x27;了</span><br><span class="line">  baseURL: &#x27;/api&#x27;, // url = base url + request url</span><br><span class="line">  // withCredentials: true, // 当跨域请求时，发送 cookies</span><br><span class="line">  timeout: 5000 // 请求超时时间</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// request 请求</span><br><span class="line">service.interceptors.request.use(</span><br><span class="line">  config =&gt; &#123;</span><br><span class="line">    // do something 在发送请求前</span><br><span class="line">    const token = localStorage.token</span><br><span class="line"></span><br><span class="line">    if (token) &#123;</span><br><span class="line">      // 让每个请求携带token</span><br><span class="line">      config.headers[&#x27;token&#x27;] = token</span><br><span class="line">    &#125;</span><br><span class="line">    return config</span><br><span class="line">  &#125;,</span><br><span class="line">  error =&gt; &#123;</span><br><span class="line">    // do something 当请求错误</span><br><span class="line">    console.log(error) // for debug</span><br><span class="line">    return Promise.reject(error)</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">// respone 响应</span><br><span class="line">service.interceptors.response.use(</span><br><span class="line">  /**</span><br><span class="line">   * 如果你想获取 http 信息，例如 headers 或 status</span><br><span class="line">   * 请 return  response =&gt; response</span><br><span class="line">   */</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">   * 下面的注释为通过response自定义code来标示请求状态，当code返回如下情况为权限有问题，登出并返回到登录页</span><br><span class="line">   * 如通过xmlhttprequest 状态码标识 逻辑可写在下面error中</span><br><span class="line">   */</span><br><span class="line">  response =&gt; &#123;</span><br><span class="line">    const res = response.data</span><br><span class="line"></span><br><span class="line">    // 如果返回的自定义code不是20000, 认定为error。</span><br><span class="line">    if (res.code !== 20000) &#123;</span><br><span class="line">      Message(&#123;</span><br><span class="line">        message: res.message || &#x27;Error&#x27;,</span><br><span class="line">        type: &#x27;error&#x27;,</span><br><span class="line">        duration: 5 * 1000</span><br><span class="line">      &#125;)</span><br><span class="line"></span><br><span class="line">      // 50008:非法的token; 50012:其他客户端登录了;  50014:Token 过期了;</span><br><span class="line">      if (res.code === 50008 || res.code === 50012 || res.code === 50014) &#123;</span><br><span class="line">        // 重新登录</span><br><span class="line">        MessageBox.confirm(&#x27;你已被登出，可以取消继续留在该页面，或者重新登录&#x27;, &#x27;确定登出&#x27;, &#123;</span><br><span class="line">          confirmButtonText: &#x27;重新登录&#x27;,</span><br><span class="line">          cancelButtonText: &#x27;取消&#x27;,</span><br><span class="line">          type: &#x27;warning&#x27;</span><br><span class="line">        &#125;).then(() =&gt; &#123;</span><br><span class="line">          // 为了重新实例化vue-router对象 避免bug</span><br><span class="line">          localStorage.removeItem(&#x27;token&#x27;)</span><br><span class="line">          location.reload()</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">      return Promise.reject(new Error(res.message || &#x27;Error&#x27;))</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      return res</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  error =&gt; &#123;</span><br><span class="line">    console.log(&#x27;err&#x27; + error) // for debug</span><br><span class="line">    Message(&#123;</span><br><span class="line">      message: error.message,</span><br><span class="line">      type: &#x27;error&#x27;,</span><br><span class="line">      duration: 5 * 1000</span><br><span class="line">    &#125;)</span><br><span class="line">    return Promise.reject(error)</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">export default service</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="七牛上传"><a href="#七牛上传" class="headerlink" title="七牛上传"></a>七牛上传</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">// 地址（文档表单上传）</span><br><span class="line">// 需要参数</span><br><span class="line">http://up-z2.qiniup.com // 请求地址</span><br><span class="line">key = xxx // 上传的名字</span><br><span class="line">token = uploadToken // 需要带上token</span><br><span class="line">// 测试接口使用post，以及选择from Data,file选择上传图片文件</span><br><span class="line"></span><br><span class="line">//安装uuid</span><br><span class="line">yarn add uuid</span><br><span class="line">// 引用</span><br><span class="line">import &#123;v4 as uuidv4&#125; from &#x27;uuid&#x27;;</span><br><span class="line">// 图片上传</span><br><span class="line">// element ui中:data=&#x27;xxx&#x27;，上传表单</span><br><span class="line"></span><br><span class="line">&lt;el-upload</span><br><span class="line">    class=&quot;upload-demo&quot;</span><br><span class="line">    :limit=&quot;1&quot;</span><br><span class="line">    action=&quot;http://up-z2.qiniup.com&quot;</span><br><span class="line">    :before-upload=&quot;beforeUpload&quot; // 上传图片之前，判断文件类型，和七牛云参数赋值</span><br><span class="line">    :on-success=&quot;handleSuccess&quot; // 图片上传成功，赋值给表单</span><br><span class="line">    :on-error=&quot;handleAvatarError&quot; // 图片post上传失败，提示；</span><br><span class="line">    :on-exceed=&quot;handleExceed&quot; // 图片上传过载提示；（只上传1个等）</span><br><span class="line">    :before-remove=&quot;beforeRemove&quot; // 上传文件后点击删除上传文件，提示是否删除，（注意异步）</span><br><span class="line">    :on-remove=&quot;handleRemove&quot; // 删除成功后，表单赋值为空，提示成功；</span><br><span class="line">    :on-preview=&quot;handlePreview&quot; // 图片放大（注意使用element ui的放大标签）</span><br><span class="line">    :data=&quot;qiniuFrom&quot;</span><br><span class="line">    :file-list=&quot;fileList&quot;</span><br><span class="line">    list-type=&quot;picture&quot;&gt;</span><br><span class="line">  &lt;el-button size=&quot;small&quot; type=&quot;primary&quot;&gt;点击上传&lt;/el-button&gt;</span><br><span class="line">&lt;/el-upload&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="表单重置无效"><a href="#表单重置无效" class="headerlink" title="表单重置无效"></a>表单重置无效</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 将赋值放在mounted后，原因是使用模态框，赋值在Dom生成之前</span><br><span class="line">// 表单重置是在mounted上设置为初始值，在这之前赋值会导致重置无效</span><br><span class="line">// 必须先打开模态框，再赋值没有影响</span><br><span class="line">this.formVisible = true </span><br><span class="line">// 值会立刻改变，但是 DOM 是异步更新的</span><br><span class="line">// 保险放在上方，异步请求本就是慢一点，并且可以使用nextTick方法保险；</span><br><span class="line">// 使用nextTick方法是在里面等DOM加载完之后，再执行；</span><br><span class="line">this.$nextTick(() =&gt; &#123;&#125;)</span><br><span class="line">// 里面赋值在外面找不到的bug，在函数里面赋值</span><br><span class="line">this.$nextTick(() =&gt; &#123;&#125;) // 外面打印不出结果</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">moxie-默谐</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://githubmoxie.github.io/2022/01/11/axios%E3%80%81echarts%E7%AD%89/">https://githubmoxie.github.io/2022/01/11/axios%E3%80%81echarts%E7%AD%89/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://githubmoxie.github.io" target="_blank">moxieBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Vue/">Vue</a></div><div class="post_share"><div class="social-share" data-image="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5221.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="/cdn/share/share.min.css" media="print" onload="this.media='all'"><script src="/cdn/share/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/01/11/Vue%E4%BC%A0%E5%8F%82%E3%80%81Vuex%E7%AD%89/"><img class="prev-cover" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5213.jpg" onerror="onerror=null;src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Vuex与Vue传参的基本内容</div></div></a></div><div class="next-post pull-right"><a href="/2022/01/11/JavaScript%E9%AB%98%E7%BA%A7%E4%B8%8EES6/"><img class="next-cover" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5929.jpg" onerror="onerror=null;src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">JavaScript高级与ES6</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/12/05/Vue2-0%E5%9F%BA%E7%A1%80/" title="Vue2.0基础"><img class="cover" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5221.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-05</div><div class="title">Vue2.0基础</div></div></a></div><div><a href="/2022/05/04/Vue2-0%E8%A1%A5%E5%85%85/" title="Vue2.0补充"><img class="cover" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5213.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-04</div><div class="title">Vue2.0补充</div></div></a></div><div><a href="/2022/01/11/Vue%E4%BC%A0%E5%8F%82%E3%80%81Vuex%E7%AD%89/" title="Vuex与Vue传参的基本内容"><img class="cover" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5213.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-11</div><div class="title">Vuex与Vue传参的基本内容</div></div></a></div><div><a href="/2022/03/17/vue-js%E4%B9%A6%E7%B1%8D/" title="vue.js书籍"><img class="cover" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c522f.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-17</div><div class="title">vue.js书籍</div></div></a></div><div><a href="/2022/08/14/vue3/" title="vue3"><img class="cover" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5221.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-14</div><div class="title">vue3</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%88%AB%E5%90%8D"><span class="toc-number">2.</span> <span class="toc-text">定义别名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#api-js"><span class="toc-number">3.</span> <span class="toc-text">api.js</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Echarts"><span class="toc-number">4.</span> <span class="toc-text">Echarts</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#axios"><span class="toc-number">5.</span> <span class="toc-text">axios</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83%E7%89%9B%E4%B8%8A%E4%BC%A0"><span class="toc-number">6.</span> <span class="toc-text">七牛上传</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E9%87%8D%E7%BD%AE%E6%97%A0%E6%95%88"><span class="toc-number">7.</span> <span class="toc-text">表单重置无效</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://pic.imgdb.cn/item/61d96e002ab3f51d910c3eb9.gif')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2025 By moxie-默谐</div><div class="footer_custom_text">分享记录学习过程！</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/cdn/background-effect/instantpage.min.js" type="module"></script><script src="/cdn/background-effect/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('/cdn/background-effect/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/cdn/background-effect/canvas-nest.min.js"></script><script id="click-heart" src="/cdn/effect/click-heart.min.js" async="async" mobile="false"></script><script src="/cdn/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="/cdn/count/busuanzi.pure.mini.js"></script></div></body></html>

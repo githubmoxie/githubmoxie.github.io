@@ -1,0 +1,374 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>VSCode配置 | moxieBlog</title><meta name="keywords" content="web前端"><meta name="author" content="moxie-默谐"><meta name="copyright" content="moxie-默谐"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言一些 VSCode 插件和配置记录  插件 相关插件配置 别名路径跳转 – @在项目中可以跳转（暂没配置）  翻译(英汉词典) –翻译（不用配置）  Auto Rename Tag –HTML前后自动修改（不用配置）  Chinese (Simplified) (简体中文) –不用配置  Code Spell Checker – 代码单词拼写检查 遇到不应该报错的单词需要配置 如：vuex（右">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VSCode配置">
+<meta property="og:url" content="https://githubmoxie.github.io/2022/06/08/VSCode%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="moxieBlog">
+<meta property="og:description" content="前言一些 VSCode 插件和配置记录  插件 相关插件配置 别名路径跳转 – @在项目中可以跳转（暂没配置）  翻译(英汉词典) –翻译（不用配置）  Auto Rename Tag –HTML前后自动修改（不用配置）  Chinese (Simplified) (简体中文) –不用配置  Code Spell Checker – 代码单词拼写检查 遇到不应该报错的单词需要配置 如：vuex（右">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5240.jpg">
+<meta property="article:published_time" content="2022-06-08T10:59:43.000Z">
+<meta property="article:modified_time" content="2025-01-10T11:15:10.008Z">
+<meta property="article:author" content="moxie-默谐">
+<meta property="article:tag" content="web前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5240.jpg"><link rel="shortcut icon" href="https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5939.jpg"><link rel="canonical" href="https://githubmoxie.github.io/2022/06/08/VSCode%E9%85%8D%E7%BD%AE/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/cdn/fontawesome/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: '/cdn/main/jquery.min.js',
+    justifiedGallery: {
+      js: '/cdn/justifiedGallery/jquery.justifiedGallery.min.js',
+      css: '/cdn/justifiedGallery/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: '/cdn/photo/jquery.fancybox.min.js',
+      css: '/cdn/photo/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'VSCode配置',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-01-10 19:15:10'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5939.jpg" onerror="onerror=null;src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa-fw fas fa-images"></i><span> 图片</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/somewords/"><i class="fa-fw fa-fw fas fa-cubes"></i><span> 一些话</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://pic.imgdb.cn/item/61d96e212ab3f51d910c5240.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">moxieBlog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa-fw fas fa-images"></i><span> 图片</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/somewords/"><i class="fa-fw fa-fw fas fa-cubes"></i><span> 一些话</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">VSCode配置</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-06-08T10:59:43.000Z" title="发表于 2022-06-08 18:59:43">2022-06-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-10T11:15:10.008Z" title="更新于 2025-01-10 19:15:10">2025-01-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%85%B6%E4%BB%96/">其他</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="VSCode配置"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>一些 VSCode 插件和配置记录</p>
+<hr>
+<h1 id="插件"><a href="#插件" class="headerlink" title="插件"></a><strong>插件</strong></h1><p><img src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/62a083dd094754312946cd6c.png"></p>
+<h1 id="相关插件配置"><a href="#相关插件配置" class="headerlink" title="相关插件配置"></a><strong>相关插件配置</strong></h1><ol>
+<li><p>别名路径跳转 – @在项目中可以跳转（暂没配置）</p>
+</li>
+<li><p>翻译(英汉词典) –翻译（不用配置）</p>
+</li>
+<li><p>Auto Rename Tag –HTML前后自动修改（不用配置）</p>
+</li>
+<li><p>Chinese (Simplified) (简体中文) –不用配置</p>
+</li>
+<li><p>Code Spell Checker – 代码单词拼写检查</p>
+<p>遇到不应该报错的单词需要配置 如：vuex（右键选择Ignore Words -&gt; 添加到User里）</p>
+<p><img src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/62a083dd094754312946cd71.png"></p>
+</li>
+<li><p>DotENV – 环境变量文件支持插件</p>
+</li>
+<li><p>EditorConfig for Vs Code –配和项目中的编辑器.editorconfig文件使用（统一编辑器代码格式化）</p>
+</li>
+<li><p>ESlint –js语法检查配和.eslintrc.js使用（暂未配置）</p>
+</li>
+<li><p>JetBrains Icon Theme – 文件图标插件</p>
+</li>
+<li><p>Live Sass Compiler – 将scss转成css</p>
+<p>配置不生成map文件</p>
+<p><img src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/62a083dd094754312946cd8e.png"></p>
+</li>
+<li><p>Live Server – 代理服务器HTML打开浏览器（自动监听变化</p>
+<p>插件配置默认打开浏览器为Chrome</p>
+</li>
+<li><p>Luke Dark Theme – 主题插件</p>
+</li>
+<li><p>Path Intellisense – 路径查找插件</p>
+<p>配置@别名提示</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// settings.json文件</span></span><br><span class="line"><span class="string">&quot;path-intellisense.mappings&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;@&quot;</span>: <span class="string">&quot;$&#123;workspaceRoot&#125;/src&quot;</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></li>
+<li><p>prettier - Code formatter –代码格式化（暂未配置）</p>
+</li>
+<li><p>Sass – 识别scss文件语法检查</p>
+</li>
+<li><p>SCSS Formatter – SCSS的格式化插件</p>
+</li>
+<li><p>Todo Highlight – 高亮Todo（已弃用改为Better Comments）</p>
+</li>
+<li><p>Vetur – 识别Vue文件（同时也有vue格式化的功能）</p>
+</li>
+<li><p>Vue 3 Snippets – 代码片段提示</p>
+</li>
+</ol>
+<hr>
+<h1 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a><strong>其他配置</strong></h1><h2 id="1-快捷键"><a href="#1-快捷键" class="headerlink" title="1.快捷键"></a><strong>1.快捷键</strong></h2><ol>
+<li>单行代码注释：Ctrl+/</li>
+<li>多行注释：Ctrl+Shift+/</li>
+<li>格式化代码：Ctrl+Alt+L</li>
+<li>向下复制行：Ctrl+Alt+Up</li>
+<li>向上复制行：Ctrl+Alt+Down </li>
+<li>删除行：Ctrl+Alt+Backspace</li>
+<li>查找文本：Ctrl+F</li>
+<li>代码全部折叠：Ctrl Alt -</li>
+<li>代码全部展开：Ctrl Alt +</li>
+<li>代码右移：Tab键（快捷生成代码）</li>
+<li>代码左移：Shift+TAB键</li>
+<li>代码上移：Alt+方向键上</li>
+<li>代码下移：Alt+方向键下</li>
+<li>长按Alt+鼠标点击不同处再放掉Alt，可以同时编辑多处</li>
+<li>快速切换 Alt+left</li>
+<li>终端清除 Ctrl k （设置 when 表达式：terminalFocus）</li>
+</ol>
+<hr>
+<h2 id="2-终端"><a href="#2-终端" class="headerlink" title="2.终端"></a><strong>2.终端</strong></h2><p><strong>终端默认选择cmd而不是powershell</strong></p>
+<p><img src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/62a083dd094754312946cd98.png"></p>
+<hr>
+<h2 id="3-代码片段"><a href="#3-代码片段" class="headerlink" title="3.代码片段"></a><strong>3.代码片段</strong></h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://snippet-generator.app/">https://snippet-generator.app/</a></p>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="comment">// 多行注释</span></span><br><span class="line">    <span class="attr">&quot;Print to console&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;///&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">            <span class="string">&quot;/** $1&quot;</span><span class="punctuation">,</span></span><br><span class="line">             <span class="string">&quot;*&quot;</span><span class="punctuation">,</span></span><br><span class="line">             <span class="string">&quot;*&quot;</span><span class="punctuation">,</span></span><br><span class="line">             <span class="string">&quot;*/&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="comment">// 函数注释</span></span><br><span class="line">    <span class="attr">&quot;Print to console&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;///f&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">            <span class="string">&quot;/**&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;* 函数名称&#123;$1&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;* 函数简介&#123;$2&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;* @param    参数&#123;$3&#125;    数据类型&#123;$&#123;4|Boolean,Number,String,Object,Array,*|&#125;&#125;    是否必传&#123;$&#123;5|是,否|&#125;&#125;    参数描述&#123;$6&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;* @param    ...&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;* @returns  返回值&#123;$&#123;7|Boolean,Number,String,Object,Array,*|&#125;&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;*/&quot;</span>             </span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="comment">// Vue模板</span></span><br><span class="line">    <span class="attr">&quot;Print to console&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;v1&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">            <span class="string">&quot;&lt;template&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;  &lt;div class=\&quot;$TM_FILENAME_BASE\&quot;&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;    $1&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;  &lt;/div&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;&lt;/template&gt;\n&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;&lt;script&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;export default &#123;&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot; name: &#x27;$TM_FILENAME_BASE&#x27;,&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;  data() &#123;&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;    return &#123;\n&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;    &#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;  &#125;,&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;  components: &#123;&#125;,&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;  watch: &#123;&#125;,&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;  mounted() &#123;&#125;,&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;  methods: &#123;&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;&lt;/script&gt;\n&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;&lt;style scoped lang=\&quot;scss\&quot;&gt;\n&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;&lt;/style&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="string">&quot;$0&quot;</span></span><br><span class="line">          <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// vue3 模板</span></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;Print to console&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;vue3&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;&lt;template&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;  &lt;div&gt;&lt;/div&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;&lt;/template&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;&lt;script setup&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;import &#123; ref, reactive, toRefs, onMounted, onBeforeMount, watch, watchEffect, computed, getCurrentInstance &#125; from &#x27;vue&#x27;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;import &#123; useRoute, useRouter &#125; from &#x27;vue-router&#x27;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;const props = defineProps(&#123;&#125;)&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;const emit = defineEmits([&#x27;x&#x27;, &#x27;xx&#x27;])&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;const data = reactive(&#123;&#125;);&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;onBeforeMount(() =&gt; &#123;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;&#125;)&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;onMounted(() =&gt; &#123;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;&#125;)&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;&lt;/script&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;&lt;style lang=&#x27;scss&#x27; scoped&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;&lt;/style&gt;&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line">console.log</span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;Print to console&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;scope&quot;</span><span class="punctuation">:</span> <span class="string">&quot;javascript,typescript&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;clog&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;console.log($1)&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Log output to console&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="4-彩虹括号"><a href="#4-彩虹括号" class="headerlink" title="4.彩虹括号"></a><strong>4.彩虹括号</strong></h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// settings.json文件</span></span><br><span class="line"><span class="string">&quot;editor.bracketPairColorization.enabled&quot;</span>: <span class="literal">true</span>,</span><br><span class="line"><span class="string">&quot;editor.guides.bracketPairs&quot;</span>: <span class="string">&quot;active&quot;</span>,</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="5-跳转"><a href="#5-跳转" class="headerlink" title="5.@跳转"></a><strong>5.@跳转</strong></h2><p>解决：安装别名跳转插件</p>
+<hr>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a><strong>补充</strong></h1><p><strong>1.prettier - Code formatter –代码格式化</strong></p>
+<p>设置搜素format后：Editor:Default Formatter为Pretter为默认、Editor:Format On Save勾选。</p>
+<p><strong>2.JavaScript (ES6) code snippets 插件的安装</strong></p>
+<p>可以快速插入es6的代码</p>
+<p><strong>3.Better Comments插件</strong></p>
+<p>​    注释高亮颜色并且支持TODO</p>
+<p><strong>4.eslint配置</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;editor.codeActionsOnSave&quot;: &#123;</span><br><span class="line">    &quot;source.fixAll.eslint&quot;: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>5.开启eslint配置后prettier配置</strong></p>
+<p>​    新建.prettierrc文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;useTabs&quot;: false,</span><br><span class="line">  &quot;tabWidth&quot;: 2,</span><br><span class="line">  &quot;printWidth&quot;: 120,</span><br><span class="line">  &quot;singleQuote&quot;: true,</span><br><span class="line">  &quot;trailingComma&quot;: &quot;none&quot;,</span><br><span class="line">  &quot;bracketSpacing&quot;: true,</span><br><span class="line">  &quot;semi&quot;: false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：直接在setting.json中配置无效，可能是和vetur冲突（但是官网配置还是无效）</p>
+<p>  优先级：</p>
+<p>​    1、项目目录的.prettierrc文件，支持json和分号格式（其实还有很多种）</p>
+<p>​    2、项目目录的.editorconfig文件（默认配置)</p>
+<p>​    3、vscode的配置文件（也有好几个地方配置，包括vetur节点下面）</p>
+<p><strong>6.TabNine插件安装</strong></p>
+<p> 智能代码片段提示</p>
+<p><strong>7.安装Vue Language Features (Volar)</strong></p>
+<p>（使用时候需要关闭 vetur–不能同时使用）</p>
+<p><strong>8.安装 Error Lens</strong></p>
+<p>加强版的错误提示，直接显示在代码后面</p>
+<p><strong>9.安装Image preview图片预览功能</strong></p>
+<p><strong>10.安装    TpyeScript Vue Plugin (Volar)</strong></p>
+<p>为 vscode 提供vue的TS代码提示等</p>
+<p><strong>11.安装 GitLens — Git supercharged</strong></p>
+<p>实时查看 git 提交记录（增强vscode 的 git 功能）</p>
+<p><strong>12.安装 vue-helper</strong></p>
+<p>vue代码函数可以跳转</p>
+<p><strong>13.安装 Stylelint</strong></p>
+<p>（fantastic-admin 开源项目样式规范）</p>
+<p><strong>14.安装</strong> <strong>Markdown All in One</strong></p>
+<p>(vscode Markdown 增强插件)</p>
+<p><strong>15.安装</strong> <strong>px to rem &amp; rpx &amp; vw (cssrem)</strong></p>
+<p>（px 转 rem、vw ）</p>
+<p><strong>16 安装 ChatGPT GPT-4</strong></p>
+<p><strong>17 安装 Photonica 主题</strong></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">moxie-默谐</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://githubmoxie.github.io/2022/06/08/VSCode%E9%85%8D%E7%BD%AE/">https://githubmoxie.github.io/2022/06/08/VSCode%E9%85%8D%E7%BD%AE/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://githubmoxie.github.io" target="_blank">moxieBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5240.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="/cdn/share/share.min.css" media="print" onload="this.media='all'"><script src="/cdn/share/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/07/12/%E5%89%8D%E7%AB%AF%E5%8F%AF%E8%A7%86%E5%8C%96/"><img class="prev-cover" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5929.jpg" onerror="onerror=null;src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">前端可视化</div></div></a></div><div class="next-post pull-right"><a href="/2022/06/07/HTML5%E8%A1%A5%E5%85%85/"><img class="next-cover" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5213.jpg" onerror="onerror=null;src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">HTML5补充</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">插件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">相关插件配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">其他配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">4.1.</span> <span class="toc-text">1.快捷键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%BB%88%E7%AB%AF"><span class="toc-number">4.2.</span> <span class="toc-text">2.终端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5"><span class="toc-number">4.3.</span> <span class="toc-text">3.代码片段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%BD%A9%E8%99%B9%E6%8B%AC%E5%8F%B7"><span class="toc-number">4.4.</span> <span class="toc-text">4.彩虹括号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%B7%B3%E8%BD%AC"><span class="toc-number">4.5.</span> <span class="toc-text">5.@跳转</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A1%A5%E5%85%85"><span class="toc-number">5.</span> <span class="toc-text">补充</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://pic.imgdb.cn/item/61d96e002ab3f51d910c3eb9.gif')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2025 By moxie-默谐</div><div class="footer_custom_text">分享记录学习过程！</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/cdn/background-effect/instantpage.min.js" type="module"></script><script src="/cdn/background-effect/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('/cdn/background-effect/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/cdn/background-effect/canvas-nest.min.js"></script><script id="click-heart" src="/cdn/effect/click-heart.min.js" async="async" mobile="false"></script><script src="/cdn/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="/cdn/count/busuanzi.pure.mini.js"></script></div></body></html>

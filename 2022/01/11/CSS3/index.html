@@ -1,0 +1,368 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CSS3 | moxieBlog</title><meta name="keywords" content="CSS"><meta name="author" content="moxie-默谐"><meta name="copyright" content="moxie-默谐"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言介绍了css3的新属性。  1.使用圆角radius时，一次设置多个是从（左上角开始顺时针旋转）；50%或者四个圆角值都设置为宽度或高度值的一半即可为圆形；单独设置一个位置如左上（可以boeder-top-left-radius:）。  box-shadow其中设置的值为：X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式(inset或省略)]；阴影的默认大小">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3">
+<meta property="og:url" content="https://githubmoxie.github.io/2022/01/11/CSS3/index.html">
+<meta property="og:site_name" content="moxieBlog">
+<meta property="og:description" content="前言介绍了css3的新属性。  1.使用圆角radius时，一次设置多个是从（左上角开始顺时针旋转）；50%或者四个圆角值都设置为宽度或高度值的一半即可为圆形；单独设置一个位置如左上（可以boeder-top-left-radius:）。  box-shadow其中设置的值为：X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式(inset或省略)]；阴影的默认大小">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5221.jpg">
+<meta property="article:published_time" content="2022-01-10T18:43:01.000Z">
+<meta property="article:modified_time" content="2025-01-10T11:15:10.008Z">
+<meta property="article:author" content="moxie-默谐">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5221.jpg"><link rel="shortcut icon" href="https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5939.jpg"><link rel="canonical" href="https://githubmoxie.github.io/2022/01/11/CSS3/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/cdn/fontawesome/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: '/cdn/main/jquery.min.js',
+    justifiedGallery: {
+      js: '/cdn/justifiedGallery/jquery.justifiedGallery.min.js',
+      css: '/cdn/justifiedGallery/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: '/cdn/photo/jquery.fancybox.min.js',
+      css: '/cdn/photo/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'CSS3',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-01-10 19:15:10'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5939.jpg" onerror="onerror=null;src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa-fw fas fa-images"></i><span> 图片</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/somewords/"><i class="fa-fw fa-fw fas fa-cubes"></i><span> 一些话</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://pic.imgdb.cn/item/61d96e212ab3f51d910c5221.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">moxieBlog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa-fw fas fa-images"></i><span> 图片</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/somewords/"><i class="fa-fw fa-fw fas fa-cubes"></i><span> 一些话</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">CSS3</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-01-10T18:43:01.000Z" title="发表于 2022-01-11 02:43:01">2022-01-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-10T11:15:10.008Z" title="更新于 2025-01-10 19:15:10">2025-01-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CSS/">CSS</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="CSS3"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>介绍了css3的新属性。</p>
+<ul>
+<li><p>1.使用圆角radius时，一次设置多个是从（左上角开始顺时针旋转）；50%或者四个圆角值都设置为宽度或高度值的一半即可为圆形；单独设置一个位置如左上（可以boeder-top-left-radius:）。</p>
+</li>
+<li><p>box-shadow其中设置的值为：X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式(inset或省略)]；阴影的默认大小为为box的大小；（只设置一个可以设置阴影扩展半径为负数，或者后面的两个不设置，暂时不知道其他方法）。</p>
+</li>
+<li><p>linear-gradient第一个参数:指定渐变方向，可以用“角度”的关键词或“英文”来表示, 省略等同于180deg；deg的参数是一个坐标系中有个圆，从原点开始，y轴0deg按照顺时针到360deg。</p>
+</li>
+<li><p>text-shado文本阴影，X轴偏移量 Y轴偏移量 模糊半径 阴影颜色；color可以使用rgba色，没有inset值。（只有四个参数）</p>
+</li>
+<li><p>text-overflow文本溢出，clip剪切、ellipsis（…）；强制文本在一行内显示white-space:nowrap。</p>
+</li>
+<li><p>嵌入字体 @font-face</p>
+</li>
+<li><p>background-origin：border-box 边框 | padding-box 内边距（默认值） | content-box 内容区域；</p>
+</li>
+<li><p>background-clip：border-box 边框（默认值）| padding-box 内边距 | content-box 内容区域 | no-clip 不裁剪,与border-box效果相同。</p>
+</li>
+<li><p>选择器：</p>
+<ol>
+<li><p>根选择器 :root{}就等同于html{}，一般来说， 推荐使用:root{}。</p>
+</li>
+<li><p>否定选择器 :not ，排除选的除此之外的；选择器:not(<em>selector</em>) 。</p>
+</li>
+<li><p>空选择器 :empty ，注意::empty 只对一点内容都没有的元素生效， 哪怕有一个空格都不行。</p>
+</li>
+<li><p>目标选择器 :target 超链接地址，与id对应。如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .not_show&#123;display: none;&#125;</span><br><span class="line">    #test:target&#123;display:block;&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;h2&gt;&lt;a href=&quot;#test&quot;&gt;test&lt;/a&gt;&lt;/h2&gt;</span><br><span class="line">&lt;div class=&quot;not_show&quot; id=&quot;test&quot;&gt;这是一个测试&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>第一个与最后一个子元素 :first-child :last-child。（其中可在后接选择器，如：ul li:first-child a）</p>
+</li>
+<li><p>指定子元素选择器/奇偶选择器 :nth-child(n) :nth-last-child(n)，（odd或者2n偶数、even或者2n+1奇数）；指定子元素索引：ul li:nth-child(5)；倒数第五个，ul li:nth-last-child(5)</p>
+</li>
+<li><p>第一个与最后一个匹配类型的子元素 first-of-type，last-of-type；（如：div的第一个p不是第一个子元素:first-of-type）</p>
+</li>
+<li><p>指定匹配类型子元素选择器/匹配类型奇偶选择器 :nth-of-type(n) :nth-last-of-type(n)；</p>
+</li>
+<li><p>唯一子元素选择器 only-child匹配的元素的父元素中仅有一个子元素，而且是一个唯一的子元素；</p>
+</li>
+<li><p>唯一匹配类型的子元素 only-of-type；只有这一个同类型的标签；</p>
+</li>
+</ol>
+</li>
+<li><p>表单选择器：</p>
+<ol>
+<li>可用选择器:enabled</li>
+<li>不可用选择器:disabled</li>
+<li>被选中选择器:checked</li>
+<li>被鼠标选中, 高亮选择器::selection（字要选中）</li>
+<li>只读选择器:read-only（readonly属性）</li>
+<li>非只读选择器:read-write</li>
+</ol>
+</li>
+<li><p>transform 变换/转换/改变</p>
+<ol>
+<li><p>变形-旋转 rotate() ，同样是沿着中心旋转；</p>
+</li>
+<li><p>变形-扭曲 skew()其中skew(x,y)参数为,x轴和y轴,不写默认为0；skewX(x)X轴扭曲变形；skewY(y)Y轴扭曲变形</p>
+</li>
+<li><p>变形-缩放 scale 如scele（1.5）</p>
+</li>
+<li><p>变形-位移 translate一般译为翻译, 这里的意思是转变、偏移、位移；其实就是类似于position中的relative，不影响其他元素，如：translate(70px,100px)</p>
+</li>
+<li><p>变形-矩阵 matrix() </p>
+</li>
+<li><p>变形-原点transform-origin，元素变性为默认原点，可以改变元素的原点，然后再做变形</p>
+</li>
+</ol>
+</li>
+<li><p>transition动画</p>
+<p>函数有以下：</p>
+<p>ease        默认值,速度由快到慢, 逐渐变慢</p>
+<p>linear        恒速</p>
+<p>ease-in        速度越来越快, 加速</p>
+<p>ease-out    速度越来越慢, 减速</p>
+<p>ease-in-out    先加速后减速, 渐显渐隐</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/* 指定过渡或动态模拟的CSS属性 */</span><br><span class="line">transition-property:all;</span><br><span class="line"></span><br><span class="line">/* 过渡时间 */</span><br><span class="line">transition-duration:.5s;</span><br><span class="line"></span><br><span class="line">/* 过渡函数 */</span><br><span class="line">transition-timing-function:ease;</span><br><span class="line"></span><br><span class="line">/* 延迟执行时间 */</span><br><span class="line">transition-delay: .2s;</span><br><span class="line"></span><br><span class="line">/* 相当于 transition: all .5s ease .2s*/</span><br></pre></td></tr></table></figure></li>
+<li><p>关键帧keyframes</p>
+<p>none        不改变默认行为, 表示动画将按预期进行和结束，在动画完成其最后一帧时，动画会反转到初始帧处</p>
+<p>forwards    当动画完成后，保持最后一个属性值（在最后一个关键帧中定义）</p>
+<p>backwards    会在向元素应用动画样式时迅速应用动画的初始帧</p>
+<p>both        元素动画同时具有forwards和backwards效果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">/* 指定调用哪个动画? */</span><br><span class="line">-webkit-animation-name:around;</span><br><span class="line"></span><br><span class="line">/* 过渡时间 */</span><br><span class="line">-webkit-animation-duration: 10s;</span><br><span class="line"></span><br><span class="line">/* 过渡函数 */</span><br><span class="line">-webkit-animation-timing-function: ease;</span><br><span class="line"></span><br><span class="line">/* 延迟执行时间 */</span><br><span class="line">-webkit-animation-delay: 1s;</span><br><span class="line"></span><br><span class="line">/* 动画播放次数, infinite, 无限次播放, 或者填入数字 */</span><br><span class="line">-webkit-animation-iteration-count:infinite;</span><br><span class="line"></span><br><span class="line">/* 动画播放方向, 默认为normal, 即动画按顺序播放. */</span><br><span class="line">/* 如果为alternate,则动画会在奇数次数（1、3、5 等等）正常播放，*/</span><br><span class="line">/* 而在偶数次数（2、4、6 等等）反向播放 */</span><br><span class="line">-webkit-animation-direction:normal;</span><br><span class="line">-webkit-animation-direction:alternate;</span><br><span class="line"></span><br><span class="line">/* 暂停 */</span><br><span class="line">-webkit-animation-play-state:paused;</span><br><span class="line"></span><br><span class="line">/* 播放、从暂停的位置开始播放 */</span><br><span class="line"></span><br><span class="line">-webkit-animation-play-state:running;</span><br></pre></td></tr></table></figure></li>
+<li><p>flex布局</p>
+<p>在使用flex布局时，给子元素定了宽度后，使用列排列会导致子元素不会随着父元素的缩小而缩小；（使用最小宽度不能生效，使用百分比和最大宽度可以解决）；换行不影响，若内容超过可以使用最小宽度；</p>
+<p>在使用弹力盒子时，一左一右div时，两个div的宽度，缩小时若右边的div再次使用flex，里面的宽度强行撑开div,使宽度远大于现在的父元素，左边的使用overflow: hidden，会导致直接消失。（解决不写直接给父元素写；或者两个都加；）</p>
+<p>使用列排列后，在添加了align-item后，子元素居中会导致宽度不随着父元素变化；（只有不写可以解决，在每个子元素套父元素，取消这个属性，然后添加flex布局，横向排列；有点多此一举还不如不用；推荐宽度小固定时使用）</p>
+<p>列排列的flex是在主轴上的分配比</p>
+<blockquote>
+<p>基本知识点：<a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html">https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html</a></p>
+</blockquote>
+<ol>
+<li><p>容器属性</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">flex-direction: 决定主轴的方向（即项目的排列方向）。</span><br><span class="line">row（默认值）：主轴为水平方向，起点在左端。</span><br><span class="line">row-reverse：主轴为水平方向，起点在右端。</span><br><span class="line">column：主轴为垂直方向，起点在上沿。</span><br><span class="line">column-reverse：主轴为垂直方向，起点在下沿。</span><br><span class="line"></span><br><span class="line">flex-wrap: 默认情况下，项目都排在一条线（又称&quot;轴线&quot;）上；定义如果一条轴线排不下，如何换行。</span><br><span class="line">nowrap（默认）：不换行。</span><br><span class="line">wrap：换行，第一行在上方。</span><br><span class="line">wrap-reverse：换行，第一行在下方。</span><br><span class="line"></span><br><span class="line">flex-flow: 是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。</span><br><span class="line"></span><br><span class="line">justify-content:定义了项目在主轴上的对齐方式。（主轴）</span><br><span class="line">flex-start（默认值）：左对齐</span><br><span class="line">flex-end：右对齐</span><br><span class="line">center： 居中</span><br><span class="line">space-between：两端对齐，项目之间的间隔都相等。</span><br><span class="line">space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</span><br><span class="line"></span><br><span class="line">align-items: 定义项目在交叉轴上如何对齐。</span><br><span class="line">flex-start：交叉轴的起点对齐。</span><br><span class="line">flex-end：交叉轴的终点对齐。</span><br><span class="line">center：交叉轴的中点对齐。</span><br><span class="line">baseline：项目的第一行文字的基线对齐。</span><br><span class="line">stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</span><br><span class="line"></span><br><span class="line"> align-content: 定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</span><br><span class="line"> flex-start：与交叉轴的起点对齐。</span><br><span class="line">flex-end：与交叉轴的终点对齐。</span><br><span class="line">center：与交叉轴的中点对齐。</span><br><span class="line">space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。</span><br><span class="line">space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</span><br><span class="line">stretch（默认值）：轴线占满整个交叉轴。</span><br></pre></td></tr></table></figure></li>
+<li><p>项目的属性</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">order: 定义项目的排列顺序。数值越小，排列越靠前，默认为0。</span><br><span class="line"> </span><br><span class="line">flex-grow: 定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。</span><br><span class="line"></span><br><span class="line">flex-shrink: 定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</span><br><span class="line"></span><br><span class="line">flex-basis: 定义了在分配多余空间之前，项目占据的主轴空间（main size）。</span><br><span class="line">浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">flex: 是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。</span><br><span class="line"></span><br><span class="line">align-self: 允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。</span><br><span class="line">默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>3Dtransform变换</p>
+<p>transform-style：flat(默认，二维效果)，preserve-3d(三维效果)。要写给父元素变成3D容器；</p>
+<p>translate3d(x,y,z) 使元素在这三个纬度中移动,也可以分开写，如：translateX(length),translateY(length),   translateZ(length)。注意z轴的值只能为px;</p>
+<p>scale3d(number,number,number) 使元素在这三个纬度中缩放，也可分开写，如：scaleX(),scaleY(),scaleY()</p>
+<p>rotateX(angle) 是元素依照x轴旋转；rotateY(angle) 是元素依照y轴旋转；rotateZ(angle) 是元素依照z轴旋转。</p>
+<p>perspective(length) 景深, 就是你在多远的地方观看。</p>
+</li>
+<li><p>多列布局 Columns：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> width: 500px;</span><br><span class="line">    padding: 5px;</span><br><span class="line">    border: 1px solid green;</span><br><span class="line">    margin: 20px auto;</span><br><span class="line"></span><br><span class="line">    /* 每列宽度, 默认auto */</span><br><span class="line">    column-width: auto;</span><br><span class="line"></span><br><span class="line">    /* 分成几列? */</span><br><span class="line">    column-count: 4;</span><br><span class="line"></span><br><span class="line">    /* 列间距 */</span><br><span class="line">    column-gap: 3em;</span><br><span class="line"></span><br><span class="line">    /* 列边框 */</span><br><span class="line">    column-rule: 1px solid #08c;</span><br><span class="line"></span><br><span class="line">/* 跨列设置, 默认是none, 不跨列. all, 跨列*/</span><br><span class="line">    -webkit-column-span: all;</span><br></pre></td></tr></table></figure></li>
+<li><p>盒子模型</p>
+<p>content-box 默认值, 定义宽和高, 以内容为标准 border-box , 定义宽和高, 以边框为标准 inherit, 继承父元素的盒子模型</p>
+</li>
+<li><p>媒体查询</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/* 当屏幕小于或等于指定宽度，样式生效 */</span><br><span class="line">@media (max-width:480px)&#123;</span><br><span class="line">    .ads &#123;display:none;&#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">/* 当屏幕大于或等于指定宽度，样式生效 */</span><br><span class="line">@media (min-width:900px)&#123;</span><br><span class="line">    .wrapper&#123;width: 980px;&#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>vertical-align</p>
+</li>
+<li><p>只显示三行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 只显示三行</span><br><span class="line">max-height: 65px;</span><br><span class="line">overflow: hidden;</span><br><span class="line">display: -webkit-box;</span><br><span class="line">-webkit-box-orient: vertical;</span><br><span class="line">-webkit-line-clamp: 3;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">moxie-默谐</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://githubmoxie.github.io/2022/01/11/CSS3/">https://githubmoxie.github.io/2022/01/11/CSS3/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://githubmoxie.github.io" target="_blank">moxieBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/CSS/">CSS</a></div><div class="post_share"><div class="social-share" data-image="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5221.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="/cdn/share/share.min.css" media="print" onload="this.media='all'"><script src="/cdn/share/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/02/16/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E8%AE%B0%E5%BD%95/"><img class="prev-cover" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5213.jpg" onerror="onerror=null;src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">面试题目记录</div></div></a></div><div class="next-post pull-right"><a href="/2022/01/11/Vue%E4%BC%A0%E5%8F%82%E3%80%81Vuex%E7%AD%89/"><img class="next-cover" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5213.jpg" onerror="onerror=null;src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Vuex与Vue传参的基本内容</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/12/05/CSS%E5%9F%BA%E7%A1%80/" title="CSS基础"><img class="cover" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5213.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-05</div><div class="title">CSS基础</div></div></a></div><div><a href="/2022/10/23/%E5%89%8D%E7%AB%AFHTML%E3%80%81CSS%E8%A1%A5%E5%85%85/" title="前端HTML、CSS补充"><img class="cover" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5240.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-23</div><div class="title">前端HTML、CSS补充</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://pic.imgdb.cn/item/61d96e002ab3f51d910c3eb9.gif')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2025 By moxie-默谐</div><div class="footer_custom_text">分享记录学习过程！</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/cdn/background-effect/instantpage.min.js" type="module"></script><script src="/cdn/background-effect/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('/cdn/background-effect/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/cdn/background-effect/canvas-nest.min.js"></script><script id="click-heart" src="/cdn/effect/click-heart.min.js" async="async" mobile="false"></script><script src="/cdn/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="/cdn/count/busuanzi.pure.mini.js"></script></div></body></html>

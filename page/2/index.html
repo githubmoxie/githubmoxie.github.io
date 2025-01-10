@@ -1,0 +1,507 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>moxieBlog - 默谐的博客</title><meta name="keywords" content="web前端"><meta name="author" content="moxie-默谐"><meta name="copyright" content="moxie-默谐"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="个人技术博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="moxieBlog">
+<meta property="og:url" content="https://githubmoxie.github.io/page/2/index.html">
+<meta property="og:site_name" content="moxieBlog">
+<meta property="og:description" content="个人技术博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5939.jpg">
+<meta property="article:author" content="moxie-默谐">
+<meta property="article:tag" content="web前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5939.jpg"><link rel="shortcut icon" href="https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5939.jpg"><link rel="canonical" href="https://githubmoxie.github.io/page/2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/cdn/fontawesome/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: '/cdn/main/jquery.min.js',
+    justifiedGallery: {
+      js: '/cdn/justifiedGallery/jquery.justifiedGallery.min.js',
+      css: '/cdn/justifiedGallery/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: '/cdn/photo/jquery.fancybox.min.js',
+      css: '/cdn/photo/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'moxieBlog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2025-01-10 19:32:51'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5939.jpg" onerror="onerror=null;src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa-fw fas fa-images"></i><span> 图片</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/somewords/"><i class="fa-fw fa-fw fas fa-cubes"></i><span> 一些话</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5940.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">moxieBlog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa-fw fas fa-images"></i><span> 图片</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/somewords/"><i class="fa-fw fa-fw fas fa-cubes"></i><span> 一些话</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">moxieBlog</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/githubmoxie" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://gitee.com/giteemoxie" target="_blank" title="Gitee"><i class="fab fa-gofore"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2022/10/23/%E5%89%8D%E7%AB%AFHTML%E3%80%81CSS%E8%A1%A5%E5%85%85/" title="前端HTML、CSS补充">     <img class="post_bg" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5240.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="前端HTML、CSS补充"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/10/23/%E5%89%8D%E7%AB%AFHTML%E3%80%81CSS%E8%A1%A5%E5%85%85/" title="前端HTML、CSS补充">前端HTML、CSS补充</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-10-23T13:17:16.000Z" title="发表于 2022-10-23 21:17:16">2022-10-23</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-10T11:15:10.023Z" title="更新于 2025-01-10 19:15:10">2025-01-10</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CSS/">CSS</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/HTML/">HTML</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/">前端知识记录</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/CSS/">CSS</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/HTML/">HTML</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/">前端知识记录</a></span></div><div class="content">前言本文是 Pink 老师HTML CSS 教程学习后的补充记录。
+参考：黑马程序员pink老师前端入门教程
+
+HTML 补充浏览器内核
+
+
+浏览器
+内核
+备注
+
+
+
+IE
+Trident
+IE、猎豹安全、360极速浏览器、百度浏览器
+
+
+firefox
+Gecko
+可惜这几年已经没落了，打开速度慢、升级频繁、猪一样的队友flash、神一样的对手chrome。
+
+
+Safari
+webkit
+现在很多人错误地把 webkit 叫做 chrome内核（即使 chrome内核已经是 blink 了）。苹果感觉像被别人抢了媳妇，都哭晕在厕所里面了。
+
+
+chrome
+Chromium/Blink
+在 Chromium 项目中研发 Blink 渲染引擎（即浏览器核心），内置于 Chrome 浏览器之中。Blink 其实是 WebKit 的分支。大部分国产浏览器最新版都采用Blink内核。二次开发
+
+
+Opera
+blink
+现在跟随chrome用blink内核。
+
+
+
+标签基本补充
+123456789101112131415161718192021222324&lt;!DOCTYPE html ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2022/10/12/JavaScript%E8%A1%A5%E5%85%85/" title="JavaScript补充">     <img class="post_bg" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5213.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="JavaScript补充"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/10/12/JavaScript%E8%A1%A5%E5%85%85/" title="JavaScript补充">JavaScript补充</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-10-12T10:26:07.000Z" title="发表于 2022-10-12 18:26:07">2022-10-12</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-10T11:15:10.008Z" title="更新于 2025-01-10 19:15:10">2025-01-10</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/JavaScript/">JavaScript</a></span></div><div class="content">前言本文主要记录博主遇到的JavaScrprt的补充知识。
+
+Ajax参考：3小时Ajax入门到精通    CSDN
+AJAX 简介​        异步的 JS 和 XML(AsynchronousJavaScript And XML)，浏览通过 Ajax 向服务器发送异步请求，可以无刷新获取数据。
+
+优点：无需刷新页面与服务器端进行通信、允许你根据用户事件来更新部分页面内容
+缺点：没有浏览历史不能回退、存在跨域问题、SEO 不友好
+
+
+XML 简介​        可扩展标记语言，和 HTML 类似，但 XML 中没有预定义标签，用来表示一些数据
+12345678&lt;!-- 使用 XML 来表示 一个学生的信息 --&gt;&lt;student&gt;    &lt;name&gt;张三&lt;/name&gt;    &lt;age&gt;18&lt;/age&gt;    &lt;gender&gt;男&lt;/gender&gt;&lt;/student&gt;&lt;!-- XML 已被 JSON 取代 --&gt;&#123;&quot;name&quot;:&qu ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2022/09/12/TypeScript/" title="TypeScript">     <img class="post_bg" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5240.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="TypeScript"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/09/12/TypeScript/" title="TypeScript">TypeScript</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-12T11:22:11.000Z" title="发表于 2022-09-12 19:22:11">2022-09-12</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-10T11:15:10.008Z" title="更新于 2025-01-10 19:15:10">2025-01-10</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/TypeScript/">TypeScript</a></span></div><div class="content">前言TypeScript 基础
+
+安装 TypeScript1234npm install -g typescript // 安装tsc -V // 检查版本号// 注：如果 ts 文件中只有 js 语法，html 引入改 ts 文件不会报错且可以执行
+
+
+TypeScript中的基本类型类型声明123456// 语法let 变量: 类型;let 变量: 类型 = 值;function fn(参数: 类型, 参数: 类型): 类型&#123;    ...&#125;
+
+
+自动类型判断
+TS拥有自动的类型判断机制
+当对变量的声明和赋值是同时进行的，TS编译器会自动判断变量的类型
+所以如果你的变量的声明和赋值时同时进行的，可以省略掉类型声明
+
+123// 如：let a = 1; 则 a 的类型为 numberlet a = 1;// a = &#x27;hello world&#x27; 报错
+
+
+类型
+
+
+类型
+例子
+描述
+
+
+
+number
+1、-1、1.1
+任意数字
+
+
+string
+‘hi’、”hi”、hi
+任意字符串
+
+
+boolean
+true、false
+布尔值true或 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2022/09/12/Vite/" title="Vite">     <img class="post_bg" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5221.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="Vite"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/09/12/Vite/" title="Vite">Vite</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-12T11:21:45.000Z" title="发表于 2022-09-12 19:21:45">2022-09-12</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-10T11:15:10.008Z" title="更新于 2025-01-10 19:15:10">2025-01-10</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Vite/">Vite</a></span></div><div class="content">前言vite 的笔记
+
+Vite介绍构建工具
+
+市面上主流的构建工具有哪些:
+
+webpack
+vite
+parcel
+esbuild
+rollup
+grunt
+gulp
+
+
+什么是构建工具
+浏览器他只认识html、css、js文件，当项目出现其他文件需要手动编译，而构建工具会自动编译。
+
+
+vite相较于webpack的优势
+
+构建速度快
+webpack支持多种模块化, 开始必须要统一模块化代码, 意味着需要将所有的依赖全部读一遍
+vite的上手难度更低, webpack的配置是非常多的, loader, plugin。
+vite是基于es modules的，webpack更多的关注兼容性, 而vite关注浏览器端的开发体验。
+
+
+webpack 不能改的原因
+12345678910111213141516// webpack支持多种模块，这一段代码最终会到浏览器里去运行const lodash = require(&quot;lodash&quot;); // commonjs 规范import Vue from &quot;vue&quot;; // es6 module// w ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2022/09/12/%E5%89%8D%E7%AB%AF%E6%96%87%E4%BB%B6%E6%B5%81/" title="前端文件流">     <img class="post_bg" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5213.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="前端文件流"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/09/12/%E5%89%8D%E7%AB%AF%E6%96%87%E4%BB%B6%E6%B5%81/" title="前端文件流">前端文件流</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-12T11:17:54.000Z" title="发表于 2022-09-12 19:17:54">2022-09-12</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-10T11:15:10.026Z" title="更新于 2025-01-10 19:15:10">2025-01-10</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/">前端知识记录</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/">前端知识记录</a></span></div><div class="content">前言本文记录 JavaScript 中的文件流，持续更新中……
+
+使用Blob下载文件1234567891011121314151617181920212223242526272829303132333435363738// 模拟下载请求function download() &#123;    axios(&#123;        url: `http://localhost:2000/download`,        method: &#x27;GET&#x27;,        responseType: &#x27;blob&#x27;,    &#125;).then(result =&gt; &#123;        // 如果接口请求填写了 responseType: &#x27;blob&#x27;，可以不需要new blob        const blob = new Blob([result.data], &#123;            type: &quot;image/jpeg&quot;        &#125;)        const u ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2022/08/14/vue3/" title="vue3">     <img class="post_bg" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5221.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="vue3"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/08/14/vue3/" title="vue3">vue3</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-08-14T12:52:30.000Z" title="发表于 2022-08-14 20:52:30">2022-08-14</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-10T11:15:10.023Z" title="更新于 2025-01-10 19:15:10">2025-01-10</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Vue/">Vue</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Vue/">Vue</a></span></div><div class="content">前言vue3的学习记录
+
+vue3新的特性
+Composition API（组合API）
+
+setup配置
+ref与reactive
+watch与watchEffect
+provide与inject
+……
+
+
+
+
+新的内置组件
+
+
+Fragment
+Teleport
+Suspense
+
+
+其他改变
+
+
+新的生命周期钩子
+data 选项应始终被声明为一个函数
+移除keyCode支持作为 v-on 的修饰符
+……
+
+
+
+vite1234567## 不需要全局安装## 创建工程yarn create vite## 安装依赖yarn## 运行yarn dev
+
+参考：vue3保姆级教程
+
+vue3-cli项目分析12345678910// main.js 分析// 没有了 Vue 的构造函数，只是createApp的工厂函数，可以直接调用// 创建应用实例对象——app(类似于之前Vue2中的vm，但app比vm更“轻”)import &#123; createApp &#125; from &#x27;vue&#x27;import App from &#x27;./App.vue&#x27 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2022/07/12/%E5%89%8D%E7%AB%AF%E5%8F%AF%E8%A7%86%E5%8C%96/" title="前端可视化">     <img class="post_bg" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5929.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="前端可视化"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/07/12/%E5%89%8D%E7%AB%AF%E5%8F%AF%E8%A7%86%E5%8C%96/" title="前端可视化">前端可视化</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-12T06:13:56.000Z" title="发表于 2022-07-12 14:13:56">2022-07-12</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-10T11:15:10.026Z" title="更新于 2025-01-10 19:15:10">2025-01-10</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/">前端知识记录</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/">前端知识记录</a></span></div><div class="content"># 前言本文记录所学的一点可视化知识
+
+数据可视化
+
+Skia 是 Chrome 和 Android 的底层 2D 绘图引擎，Skia 采用 C++ 编程，由于它位于浏览器的更底层，所以我们平常接触较少。
+
+OpenGL（Open Graphics Library）是2D、3D图形渲染库，它可以绘制从简单的2D图形到复杂的3D景象。OpenGL 常用于 CAD、VR、数据可视化和游戏等众多领域。
+
+Chrome 使用 Skia 作为绘图引擎，向上层开放了 canvas、svg、WebGL、HTML 等绘图能力。
+
+
+
+canvas标签只是图形容器，相当于一个画布，canvas 元素本身是没有绘图能力的。所有的绘制工作必须在 JavaScript 内部完成，相当于使用画笔在画布上画画。
+1234// 注意：必须指定宽高---canvas标签默认宽度与高度 300 * 150// canvas标签的w|h务必通过canvas标签属性width|height设置// 切记不能通过样式去设置画布的宽度与高度这样canvas的坐标体系会出现问题&lt;canvas id=&quot;charts ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2022/06/08/VSCode%E9%85%8D%E7%BD%AE/" title="VSCode配置">     <img class="post_bg" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5240.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="VSCode配置"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/06/08/VSCode%E9%85%8D%E7%BD%AE/" title="VSCode配置">VSCode配置</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-06-08T10:59:43.000Z" title="发表于 2022-06-08 18:59:43">2022-06-08</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-10T11:15:10.008Z" title="更新于 2025-01-10 19:15:10">2025-01-10</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/">其他</a></span></div><div class="content">前言一些 VSCode 插件和配置记录
+
+插件
+相关插件配置
+别名路径跳转 – @在项目中可以跳转（暂没配置）
+
+翻译(英汉词典) –翻译（不用配置）
+
+Auto Rename Tag –HTML前后自动修改（不用配置）
+
+Chinese (Simplified) (简体中文) –不用配置
+
+Code Spell Checker – 代码单词拼写检查
+遇到不应该报错的单词需要配置 如：vuex（右键选择Ignore Words -&gt; 添加到User里）
+
+
+DotENV – 环境变量文件支持插件
+
+EditorConfig for Vs Code –配和项目中的编辑器.editorconfig文件使用（统一编辑器代码格式化）
+
+ESlint –js语法检查配和.eslintrc.js使用（暂未配置）
+
+JetBrains Icon Theme – 文件图标插件
+
+Live Sass Compiler – 将scss转成css
+配置不生成map文件
+
+
+Live Server – 代理服务器HTML打开浏览器（自动监听变化
+插件配置默认打开浏览器为Chrome
+
+Luke Dark ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2022/06/07/HTML5%E8%A1%A5%E5%85%85/" title="HTML5补充">     <img class="post_bg" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5213.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="HTML5补充"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/06/07/HTML5%E8%A1%A5%E5%85%85/" title="HTML5补充">HTML5补充</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-06-07T06:22:23.000Z" title="发表于 2022-06-07 14:22:23">2022-06-07</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-10T11:15:10.008Z" title="更新于 2025-01-10 19:15:10">2025-01-10</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/HTML/">HTML</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/HTML/">HTML</a></span></div><div class="content">前言HTML（Hyper Text Markup Language）超文本标记语言，是用来描述网页的一种语言。
+
+参考：小火柴的前端小册子
+
+
+标签标签有单标签和双标签
+注意：HTML标签对大小写不敏感，但要全小写。
+
+实体HTML中某些字符是预留的，需要被替换为字符实体（如：&amp;nbsp; ）
+
+全局属性（一共16个）
+
+
+属性名
+值
+作用
+
+
+
+contenteditable
+true/false
+指定是否可以在浏览器里编辑内容
+
+
+data-*
+
+用于存储页面或应用程序的私有定制数据
+
+
+draggable
+true/false/auto
+用户是否可以拖动元素注意：链接和图像默认是可拖动的
+
+
+spellcheck
+true/false
+规定是否对元素进行拼写和语法检查，对拼写错误的单词会在其下方出现红线
+
+
+
+语法规范
+文件应以 &lt;!DOCTYPE ......&gt; 首行顶格开始，推荐 &lt;!DOCTYPE html&gt;
+声明文档编码charset，必须是 head第一个子元素&lt;meta charset=&quot;utf-8&quot;&gt;
+ ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2022/05/28/Git%E8%A1%A5%E5%85%85/" title="Git补充">     <img class="post_bg" src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5213.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="Git补充"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/05/28/Git%E8%A1%A5%E5%85%85/" title="Git补充">Git补充</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-05-28T09:19:05.000Z" title="发表于 2022-05-28 17:19:05">2022-05-28</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-10T11:15:10.008Z" title="更新于 2025-01-10 19:15:10">2025-01-10</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/Git/">Git</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Git/">Git</a></span></div><div class="content">前言Git知识的补充
+
+参考：阮一峰 Git 教程
+
+
+命令stash暂存1234567891011121314151617181920# 保存当前未commit的代码git stash# 保存当前未commit的代码并添加备注git stash save &quot;备注的内容&quot;# 列出stash的所有记录git stash list# 删除stash的所有记录git stash clear# 应用最近一次的stashgit stash apply# 应用最近一次的stash，随后删除该记录git stash pop# 删除最近的一次stashgit stash drop
+
+
+reset****重置重置后需要git push -f强制推送
+123456789101112131415# 并且会改变暂存区git reset HEAD^# 倒退指针的同时，不改变暂存区git reset --soft HEAD^# 倒退指针的同时，改变工作区git reset --hard HEAD^# 如果不指定回滚的位置，那么等同于撤销修改。# 撤销上一次向暂存区添加的所有文件$ git re ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#content-inner">5</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5939.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="avatar"/></div><div class="author-info__name">moxie-默谐</div><div class="author-info__description">Web前端工程师</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div></div><a class="button--animated" id="card-info-btn" href="mailto:2287930290@qq.com"><i class="fas fa-envelope"></i><span>联系我-QQEmail</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/githubmoxie" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://gitee.com/giteemoxie" target="_blank" title="Gitee"><i class="fab fa-gofore"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content"><div style="color:#f38fa3">欢迎来到我的博客！努力更新中！</div><div style="color:cornflowerblue;">每次更新会有缓存，请刷新浏览器！</div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/02/19/webpack-%E5%9F%BA%E7%A1%80/" title="webpack 基础"><img src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5213.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="webpack 基础"/></a><div class="content"><a class="title" href="/2024/02/19/webpack-%E5%9F%BA%E7%A1%80/" title="webpack 基础">webpack 基础</a><time datetime="2024-02-19T10:46:57.000Z" title="发表于 2024-02-19 18:46:57">2024-02-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/05/ts%E5%90%8E%E5%8F%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" title="ts后台项目实战"><img src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5213.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="ts后台项目实战"/></a><div class="content"><a class="title" href="/2023/10/05/ts%E5%90%8E%E5%8F%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" title="ts后台项目实战">ts后台项目实战</a><time datetime="2023-10-05T12:56:46.000Z" title="发表于 2023-10-05 20:56:46">2023-10-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/05/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%954/" title="前端知识记录4"><img src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5213.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="前端知识记录4"/></a><div class="content"><a class="title" href="/2023/10/05/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%954/" title="前端知识记录4">前端知识记录4</a><time datetime="2023-10-05T12:56:20.000Z" title="发表于 2023-10-05 20:56:20">2023-10-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/28/Node-js-%E8%A1%A5%E5%85%85/" title="Node.js 补充"><img src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e2b2ab3f51d910c5929.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="Node.js 补充"/></a><div class="content"><a class="title" href="/2022/12/28/Node-js-%E8%A1%A5%E5%85%85/" title="Node.js 补充">Node.js 补充</a><time datetime="2022-12-28T04:56:38.000Z" title="发表于 2022-12-28 12:56:38">2022-12-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/20/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%953/" title="前端知识记录3"><img src= "https://pic.imgdb.cn/item/61d96e072ab3f51d910c4373.gif" data-lazy-src="https://pic.imgdb.cn/item/61d96e212ab3f51d910c5221.jpg" onerror="this.onerror=null;this.src='https://pic.imgdb.cn/item/61d96e212ab3f51d910c520f.jpg'" alt="前端知识记录3"/></a><div class="content"><a class="title" href="/2022/11/20/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%953/" title="前端知识记录3">前端知识记录3</a><time datetime="2022-11-20T04:04:44.000Z" title="发表于 2022-11-20 12:04:44">2022-11-20</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CSS/"><span class="card-category-list-name">CSS</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/HTML/"><span class="card-category-list-name">HTML</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JQuery%E7%9F%A5%E8%AF%86/"><span class="card-category-list-name">JQuery知识</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/"><span class="card-category-list-name">JavaScript</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Node-js/"><span class="card-category-list-name">Node.js</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/React/"><span class="card-category-list-name">React</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/TypeScript/"><span class="card-category-list-name">TypeScript</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Vite/"><span class="card-category-list-name">Vite</span><span class="card-category-list-count">1</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/CSS/" style="font-size: 1.27em; color: rgb(81, 84, 101)">CSS</a><a href="/tags/Git/" style="font-size: 1.21em; color: rgb(175, 76, 117)">Git</a><a href="/tags/HTML/" style="font-size: 1.27em; color: rgb(142, 0, 72)">HTML</a><a href="/tags/JavaScript/" style="font-size: 1.33em; color: rgb(33, 75, 113)">JavaScript</a><a href="/tags/Hexo/" style="font-size: 1.21em; color: rgb(51, 126, 152)">Hexo</a><a href="/tags/JQuery/" style="font-size: 1.15em; color: rgb(126, 170, 134)">JQuery</a><a href="/tags/Markdown/" style="font-size: 1.15em; color: rgb(97, 103, 167)">Markdown</a><a href="/tags/Node-js/" style="font-size: 1.21em; color: rgb(115, 64, 117)">Node.js</a><a href="/tags/React/" style="font-size: 1.21em; color: rgb(61, 85, 56)">React</a><a href="/tags/Vue/" style="font-size: 1.39em; color: rgb(42, 88, 91)">Vue</a><a href="/tags/vue-admin/" style="font-size: 1.21em; color: rgb(148, 91, 125)">vue-admin</a><a href="/tags/uniapp/" style="font-size: 1.15em; color: rgb(176, 197, 46)">uniapp</a><a href="/tags/webpack/" style="font-size: 1.21em; color: rgb(47, 151, 104)">webpack</a><a href="/tags/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/" style="font-size: 1.45em; color: rgb(105, 164, 186)">前端知识记录</a><a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 1.21em; color: rgb(157, 87, 95)">微信小程序</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">二月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">十一月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/10/"><span class="card-archive-list-date">十月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/09/"><span class="card-archive-list-date">九月 2022</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/08/"><span class="card-archive-list-date">八月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/07/"><span class="card-archive-list-date">七月 2022</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">45</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2021-12-04T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">141.2k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-01-10T11:32:50.893Z"></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://pic.imgdb.cn/item/61d96e002ab3f51d910c3eb9.gif')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2025 By moxie-默谐</div><div class="footer_custom_text">分享记录学习过程！</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/cdn/background-effect/instantpage.min.js" type="module"></script><script src="/cdn/background-effect/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('/cdn/background-effect/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/cdn/background-effect/canvas-nest.min.js"></script><script id="click-heart" src="/cdn/effect/click-heart.min.js" async="async" mobile="false"></script><script src="/cdn/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="/cdn/count/busuanzi.pure.mini.js"></script></div></body></html>
